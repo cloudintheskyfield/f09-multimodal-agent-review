@@ -1,0 +1,2729 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "MMAGENT_PROMPT_REGISTRY",
+  "product": "MMAgent",
+  "revision": "2026-07-16-stage-scoped-contract-pass",
+  "source_html": {
+    "path": "/Users/wangshuang/PycharmProjects/haima/generate_multimodal_content/设计文档/asset_html/multimodal-agent-diagram-collection.html",
+    "sha256": "87bc2fe21d7358989d889611ac37f66e99e9be8fb739a9698188398dd0ce567a",
+    "prompt_count": 41,
+    "authority": [
+      "prompt_identity",
+      "order",
+      "status",
+      "group",
+      "scope_marker"
+    ],
+    "out_of_scope_prompt_ids": [
+      "VIDEO_UNDERSTANDING_ANALYZER",
+      "VLM_IMAGE_UNDERSTANDING",
+      "VLM_VIDEO_UNDERSTANDING"
+    ]
+  },
+  "source_code": {
+    "root": "/Users/wangshuang/PycharmProjects/haima/elo/codex-rs/multimodal-agent",
+    "authority": [
+      "input_contract",
+      "output_contract",
+      "placeholder_syntax",
+      "validation",
+      "call_semantics",
+      "runtime_binding"
+    ]
+  },
+  "deployment": {
+    "this_registry_loaded_by_production": false,
+    "production_loader_manifest": "/Users/wangshuang/PycharmProjects/haima/elo/codex-rs/multimodal-agent/prompts/manifest.json",
+    "runtime_enabled_meaning": "A corresponding runtime call or execution position exists; it does not mean this standalone design file is embedded by the production loader.",
+    "model_facing_edition": "mmagent_prompt_registry_by_svg_en",
+    "model_facing_edition_deployed": false
+  },
+  "loader_contract": {
+    "placeholder_syntax": "{{UPPER_SNAKE_CASE}}",
+    "missing_value_policy": "reject",
+    "unresolved_placeholder_policy": "reject",
+    "hash_mismatch_policy": "reject",
+    "unknown_output_field_policy": "reject"
+  },
+  "prompt_body_policy": {
+    "scope": "current prompt responsibility, current inputs, current processing, current output, and self-check only",
+    "section_order": [
+      "positioning",
+      "single_responsibility",
+      "explicit_exclusions",
+      "stage_inputs_or_upstream_output",
+      "runtime_assembly",
+      "strict_input_json",
+      "processing_rules",
+      "strict_output_json",
+      "status_and_blocking",
+      "downstream_consumption",
+      "self_check"
+    ],
+    "json_examples": "valid JSON, recursively pretty-printed with one field per line and no inline comments",
+    "field_notes": "outside the JSON example and limited to meaning, source, and key constraints",
+    "image_dimensions": [
+      "subject_detail",
+      "scene",
+      "composition_and_camera",
+      "style",
+      "color",
+      "lighting",
+      "material_and_texture",
+      "detail_and_finish",
+      "text_policy",
+      "observable_acceptance"
+    ],
+    "video_additions": [
+      "timing",
+      "motion_path_speed_and_rhythm",
+      "camera_motion",
+      "transitions",
+      "cross_frame_continuity",
+      "stable_end_frame",
+      "audio_policy"
+    ],
+    "unknown_contract_fields": "forbidden",
+    "model_context_projection": "stage_local_only",
+    "runtime_only_global_fields": [
+      "request_id",
+      "session_id",
+      "job_id",
+      "conversation_id",
+      "user_id",
+      "project_id",
+      "idempotency_key",
+      "event_id"
+    ],
+    "local_reference_rule": "Keep node_id, route_id, binding_id, input_id, and other local references only when the current stage needs deterministic validation or result attachment."
+  },
+  "endpoint_alignment": {
+    "verified_end_to_end": false,
+    "route_selection_owner": "runtime capability router",
+    "endpoint_and_model_selection_owner": "runtime catalog and routing policy",
+    "submission_owner": "provider adapter",
+    "prompt_forbidden_outputs": [
+      "provider",
+      "model",
+      "endpoint",
+      "api_key",
+      "headers",
+      "request_url",
+      "provider_request_body"
+    ],
+    "rewriter_required_position": "after route and input validation, before adapter submission",
+    "rewriter_position_verified_all_paths": false,
+    "known_rewriter_order_gap": "The content-package child flow currently rewrites and submits without proving every child route and required input is executable; the Prompt files state the required invariant and never compensate by inventing missing inputs.",
+    "deterministic_position": "selected directly in deterministic mode, or used after an unavailable or invalid LLM rewrite, always before adapter submission",
+    "unresolved_code_fact": "The current route, catalog, and adapter endpoint mappings are not proven to be one consistent chain; all Prompt contracts therefore remain endpoint-neutral.",
+    "quality_escalation_owner": "Runtime owns any provider/model/endpoint escalation outside model prompts; quality reports never name or select a concrete service."
+  },
+  "counts": {
+    "total": 41,
+    "active": 24,
+    "reserved": 9,
+    "active_deterministic": 8,
+    "runtime_enabled": 28,
+    "runtime_not_enabled": 13
+  },
+  "groups": [
+    {
+      "order": 1,
+      "name": "路由与业务内容包",
+      "range": "01-08",
+      "count": 8
+    },
+    {
+      "order": 2,
+      "name": "文档内容包与 DAG",
+      "range": "09-11",
+      "count": 3
+    },
+    {
+      "order": 3,
+      "name": "原子能力 Prompt",
+      "range": "12-19",
+      "count": 8
+    },
+    {
+      "order": 4,
+      "name": "理解与通用质量门",
+      "range": "20-27",
+      "count": 8
+    },
+    {
+      "order": 5,
+      "name": "ACP 内容验收与修复",
+      "range": "28-32",
+      "count": 5
+    },
+    {
+      "order": 6,
+      "name": "严格 JSON 修复",
+      "range": "33",
+      "count": 1
+    },
+    {
+      "order": 7,
+      "name": "确定性 fallback",
+      "range": "34-41",
+      "count": 8
+    }
+  ],
+  "prompts": [
+    {
+      "order": 1,
+      "id": "INTENT_CLASSIFIER",
+      "version": "1.2.0",
+      "status": "active",
+      "runtime_enabled": false,
+      "group": "路由与业务内容包",
+      "registry_layer": null,
+      "path": "路由与业务内容包/INTENT_CLASSIFIER.md",
+      "sha256": "2fbceb7bdc8980a74dabb525fa0a4cfb269c197eb3ef27345a644d3ff71ea23d",
+      "executor": "design_contract",
+      "position": "between context loading and multimedia workflow planning",
+      "purpose": "Normalize stage-scoped messages and task-related context into a seven-field multimedia TaskBrief without planning or routing.",
+      "input_keys": [
+        "messages",
+        "context"
+      ],
+      "output_keys": [
+        "task",
+        "outcomes",
+        "requirements",
+        "input_refs",
+        "context_facts",
+        "open_issues",
+        "planning_readiness"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "No separate production model call is bound. This target contract defines a stage-scoped TaskBrief normalizer for messages plus task-related context only.",
+      "design_runtime_gap": "Production currently assembles legacy routing input directly and does not execute this seven-field TaskBrief normalization contract.",
+      "evidence": [
+        "src/main.rs:559",
+        "src/media_agent.rs:151",
+        "src/llm.rs:756"
+      ],
+      "input_schema": "stage_scoped_messages_and_context",
+      "output_schema": "task_brief.v1",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ],
+      "target_status": "target_design_contract"
+    },
+    {
+      "order": 2,
+      "id": "ROUTE_ID_SELECTOR",
+      "version": "2.2.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "路由与业务内容包",
+      "registry_layer": null,
+      "path": "路由与业务内容包/ROUTE_ID_SELECTOR.md",
+      "sha256": "f258b244b94380f4c0abb9c1396d1eb21a2ce4b17504e0166d7a77cd944650c0",
+      "executor": "llm",
+      "position": "route selection before planning or provider work",
+      "purpose": "Select one enabled abstract route from the runtime candidate list.",
+      "input_keys": [
+        "user_goal",
+        "conversation_summary",
+        "requested_delivery",
+        "format_constraints",
+        "media_inputs"
+      ],
+      "output_keys": [
+        "route_id"
+      ],
+      "placeholders": [
+        "ROUTE_CANDIDATES"
+      ],
+      "runtime_binding": "Legacy route-selection bridge. Runtime supplies the five-field normalized request and injects only filtered route candidates.",
+      "evidence": [
+        "src/llm.rs:718",
+        "src/route_registry.rs:27"
+      ],
+      "input_schema": "CURRENT legacy normalized request + runtime-injected route_candidates",
+      "output_schema": "CURRENT RouterSelection{route_id}",
+      "kind": "legacy_selector",
+      "family": "legacy_route_selector",
+      "compatible_routes": [
+
+      ],
+      "target_status": "legacy_deprecated",
+      "design_runtime_gap": "This prompt is retained only for the CURRENT legacy bridge and is not an upstream dependency of the target TaskBrief-to-DAG chain.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 3,
+      "id": "CONTENT_PACKAGE_GENERATOR",
+      "version": "3.2.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "路由与业务内容包",
+      "registry_layer": "A",
+      "path": "路由与业务内容包/CONTENT_PACKAGE_GENERATOR.md",
+      "sha256": "7f9559b96ab33d41a87dab14a207379b285309412d318c714031bdea2409259e",
+      "executor": "llm",
+      "position": "business content planning before atomic media rewriting",
+      "purpose": "Build a presentation content package and provider-neutral asset intents.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "resolved_inputs",
+        "upstream_outputs",
+        "downstream_contract",
+        "runtime_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "outputs",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Direct content-package model call with a deny-unknown typed draft.",
+      "evidence": [
+        "src/media_agent.rs:3384",
+        "src/media_agent.rs:5915"
+      ],
+      "input_schema": "resolved_node_context.v1",
+      "output_schema": "business_node_result.v1",
+      "kind": "business_node",
+      "family": "presentation_package",
+      "compatible_routes": [
+        "R01"
+      ],
+      "target_status": "active",
+      "output_payload_keys": [
+        "content_package",
+        "asset_plan"
+      ],
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "Runtime keeps child-node, child-Route, and selector topology outside the model call.",
+        "Runtime reattaches validated child topology by slot_id after the model returns and fails closed on any slot mismatch."
+      ]
+    },
+    {
+      "order": 4,
+      "id": "VIDEO_STORYBOARD_GENERATOR",
+      "version": "2.2.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "路由与业务内容包",
+      "registry_layer": "A",
+      "path": "路由与业务内容包/VIDEO_STORYBOARD_GENERATOR.md",
+      "sha256": "c94b0a5b736ee57ae8cae8126825717201f096362e190599054abc35986a10a5",
+      "executor": "llm",
+      "position": "storyboard planning before atomic video generation",
+      "purpose": "Plan shots, timing, continuity, audio direction, overlays, and dependencies.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "resolved_inputs",
+        "upstream_outputs",
+        "downstream_contract",
+        "runtime_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "outputs",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Direct route-specific Layer 2 model call.",
+      "evidence": [
+        "src/media_agent.rs:4717"
+      ],
+      "input_schema": "resolved_node_context.v1",
+      "output_schema": "business_node_result.v1",
+      "kind": "business_node",
+      "family": "storyboard_package",
+      "compatible_routes": [
+        "R02"
+      ],
+      "target_status": "active",
+      "output_payload_keys": [
+        "storyboard",
+        "shot_plan"
+      ],
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "Runtime keeps child-node, child-Route, and selector topology outside the model call.",
+        "Runtime reattaches validated child topology by slot_id after the model returns and fails closed on any slot mismatch."
+      ]
+    },
+    {
+      "order": 5,
+      "id": "TEXT_CONTENT_GENERATOR",
+      "version": "2.1.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "路由与业务内容包",
+      "registry_layer": "A",
+      "path": "路由与业务内容包/TEXT_CONTENT_GENERATOR.md",
+      "sha256": "48e689e5a7ce04ec327d1386e79c984b70332369783059cccb950d44a2ff4c68",
+      "executor": "llm",
+      "position": "text generation route",
+      "purpose": "Generate directly deliverable text with explicit fact-check handling.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "resolved_inputs",
+        "upstream_outputs",
+        "runtime_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "outputs",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Direct route-specific Layer 2 model call.",
+      "evidence": [
+        "src/media_agent.rs:4717"
+      ],
+      "input_schema": "resolved_node_context.v1",
+      "output_schema": "business_node_result.v1",
+      "kind": "business_node",
+      "family": "text_content",
+      "compatible_routes": [
+        "R10"
+      ],
+      "target_status": "active",
+      "output_payload_keys": [
+        "text_content"
+      ],
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 6,
+      "id": "FACT_VERIFICATION_PLANNER",
+      "version": "2.1.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "路由与业务内容包",
+      "registry_layer": "A",
+      "path": "路由与业务内容包/FACT_VERIFICATION_PLANNER.md",
+      "sha256": "fc8734b5e7ce3093406cb4a83ad53978e93daaa1970ec2911b9cf782df1e4310",
+      "executor": "llm",
+      "position": "fact-verification planning without external retrieval",
+      "purpose": "Identify verifiable claims, evidence gaps, and safe publication handling.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "resolved_inputs",
+        "upstream_outputs",
+        "runtime_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "outputs",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Direct route-specific Layer 2 model call; current input contains no external search results.",
+      "evidence": [
+        "src/media_agent.rs:4717"
+      ],
+      "input_schema": "resolved_node_context.v1",
+      "output_schema": "business_node_result.v1",
+      "kind": "business_node",
+      "family": "verification_plan",
+      "compatible_routes": [
+        "R11"
+      ],
+      "target_status": "active",
+      "output_payload_keys": [
+        "verification_plan"
+      ],
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 7,
+      "id": "VIDEO_UNDERSTANDING_ANALYZER",
+      "version": "2.2.0",
+      "status": "active",
+      "html_scope": "independent_understanding_only",
+      "runtime_enabled": true,
+      "group": "路由与业务内容包",
+      "registry_layer": "A",
+      "path": "路由与业务内容包/VIDEO_UNDERSTANDING_ANALYZER.md",
+      "sha256": "242cba867add421fb6787da14800e18ac16045989693648202502b846247e88d",
+      "executor": "runtime_execution_spec",
+      "position": "video-understanding execution path",
+      "purpose": "Define evidence-bounded video analysis semantics.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "media",
+        "observability",
+        "analysis_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "input_id",
+        "media_kind",
+        "coverage",
+        "observations",
+        "reference_roles",
+        "uncertainties",
+        "confidence",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Used as an instruction prompt identifier in an execution spec; there is no separate Layer 2 model call.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:2997"
+      ],
+      "input_schema": "node_scoped_video_analysis_input.v1",
+      "output_schema": "node_scoped_media_analysis_result.v1",
+      "kind": "media_analysis",
+      "family": "video_evidence_analysis",
+      "compatible_routes": [
+        "R14"
+      ],
+      "target_status": "active",
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 8,
+      "id": "WORD_DOCUMENT_PACKAGE_GENERATOR",
+      "version": "3.1.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "路由与业务内容包",
+      "registry_layer": "A",
+      "path": "路由与业务内容包/WORD_DOCUMENT_PACKAGE_GENERATOR.md",
+      "sha256": "c06d9a3ca3d5cbab9650e4edd75ddb8f1148805bf04762144b30f356245410c6",
+      "executor": "llm_optional_with_deterministic_default",
+      "position": "document package planning before an external renderer",
+      "purpose": "Build a Word-compatible structured package without claiming a real file.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "resolved_inputs",
+        "upstream_outputs",
+        "runtime_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "outputs",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "LLM mode is optional; deterministic package preview is the default path.",
+      "evidence": [
+        "src/media_agent.rs:4605",
+        "src/media_agent.rs:4809",
+        "src/media_agent.rs:4884"
+      ],
+      "input_schema": "resolved_node_context.v1",
+      "output_schema": "business_node_result.v1",
+      "kind": "business_node",
+      "family": "docx_renderer_spec",
+      "compatible_routes": [
+        "R15"
+      ],
+      "target_status": "active",
+      "output_payload_keys": [
+        "word_document_spec"
+      ],
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 9,
+      "id": "FIXED_LAYOUT_PDF_PACKAGE_GENERATOR",
+      "version": "3.1.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "文档内容包与 DAG",
+      "registry_layer": "A",
+      "path": "文档内容包与 DAG/FIXED_LAYOUT_PDF_PACKAGE_GENERATOR.md",
+      "sha256": "1caeb186f5b6d903035c460fc1484f73dbbecdca0d139600d8607d2b6c31ea5a",
+      "executor": "llm_optional_with_deterministic_default",
+      "position": "fixed-layout package planning before an external renderer",
+      "purpose": "Build a PDF-compatible structured package without claiming a real file.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "resolved_inputs",
+        "upstream_outputs",
+        "runtime_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "outputs",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "LLM mode is optional; deterministic package preview is the default path.",
+      "evidence": [
+        "src/media_agent.rs:4605",
+        "src/media_agent.rs:4809",
+        "src/media_agent.rs:4884"
+      ],
+      "input_schema": "resolved_node_context.v1",
+      "output_schema": "business_node_result.v1",
+      "kind": "business_node",
+      "family": "pdf_renderer_spec",
+      "compatible_routes": [
+        "R16"
+      ],
+      "target_status": "active",
+      "output_payload_keys": [
+        "pdf_layout_spec"
+      ],
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 10,
+      "id": "EXCEL_WORKBOOK_PACKAGE_GENERATOR",
+      "version": "3.1.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "文档内容包与 DAG",
+      "registry_layer": "A",
+      "path": "文档内容包与 DAG/EXCEL_WORKBOOK_PACKAGE_GENERATOR.md",
+      "sha256": "2cabffd0efe82fe39cdcb98e4e2c0936f06e28a8b1564cc47113abb7672cfd4b",
+      "executor": "llm_optional_with_deterministic_default",
+      "position": "workbook package planning before an external renderer",
+      "purpose": "Build an XLSX-compatible structured package with top-level data arrays.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "resolved_inputs",
+        "upstream_outputs",
+        "runtime_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "outputs",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "LLM mode is optional; deterministic package preview is the default path.",
+      "evidence": [
+        "src/media_agent.rs:4605",
+        "src/media_agent.rs:4809",
+        "src/media_agent.rs:4884"
+      ],
+      "input_schema": "resolved_node_context.v1",
+      "output_schema": "business_node_result.v1",
+      "kind": "business_node",
+      "family": "xlsx_renderer_spec",
+      "compatible_routes": [
+        "R17"
+      ],
+      "target_status": "active",
+      "output_payload_keys": [
+        "excel_workbook_spec"
+      ],
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 11,
+      "id": "MULTIMODAL_DAG_PLANNER",
+      "version": "1.2.0",
+      "status": "active",
+      "runtime_enabled": false,
+      "group": "文档内容包与 DAG",
+      "registry_layer": null,
+      "path": "文档内容包与 DAG/MULTIMODAL_DAG_PLANNER.md",
+      "sha256": "19bc1ea13f17b5f9c3f09e0df2afe09d6a0d0541da9ed987f0f6666615b62b57",
+      "executor": "design_contract_with_deterministic_equivalent",
+      "position": "workflow planning before node execution",
+      "purpose": "Plan the minimal provider-neutral multimedia and content-package WorkflowDag required by a validated TaskBrief.",
+      "input_keys": [
+        "task",
+        "outcomes",
+        "requirements",
+        "input_refs",
+        "context_facts",
+        "open_issues",
+        "planning_readiness"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "nodes",
+        "edges",
+        "outcome_bindings",
+        "blocking_issue_refs"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "No separate production model call is bound; current Rust has a deterministic planning equivalent whose exact parity with this target contract is not proven.",
+      "evidence": [
+        "src/workflow.rs:35",
+        "src/workflow.rs:59"
+      ],
+      "output_schema": "workflow_dag.v2",
+      "input_schema": "task_brief.v1",
+      "design_runtime_gap": "The seven-field TaskBrief-to-WorkflowDag model contract is not wired as a standalone production prompt call.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ],
+      "target_status": "target_design_contract"
+    },
+    {
+      "order": 12,
+      "id": "IMAGE_PROMPT_REWRITER",
+      "version": "3.1.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "原子能力 Prompt",
+      "registry_layer": "B",
+      "path": "原子能力 Prompt/IMAGE_PROMPT_REWRITER.md",
+      "sha256": "17676eb96275a83b6f5b2f4c7c1afd1101223fd7bf1c534edf1c73fbac173346",
+      "executor": "llm",
+      "position": "required after text-to-image route and input validation, before adapter submission",
+      "position_verified_all_paths": false,
+      "purpose": "Compile a provider-neutral text-to-image prompt draft.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "Direct atomic LLM rewriter; Rust validates allowed fields and dimensions.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1155",
+        "src/prompt_orchestrator.rs:1240",
+        "src/prompt_orchestrator.rs:1270"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "provider_prompt_rewriter",
+      "family": "text_to_image",
+      "compatible_routes": [
+        "R03"
+      ],
+      "target_status": "active",
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 13,
+      "id": "IMAGE_EDIT_PROMPT_REWRITER",
+      "version": "3.1.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "原子能力 Prompt",
+      "registry_layer": "B",
+      "path": "原子能力 Prompt/IMAGE_EDIT_PROMPT_REWRITER.md",
+      "sha256": "5d69b6bf9104d22b0c5defe2d1ed0be0113f471419030b5da8e1eda99688def7",
+      "executor": "llm",
+      "position": "required after image-edit route, consent, and input validation, before adapter submission",
+      "position_verified_all_paths": false,
+      "purpose": "Compile a provider-neutral image-edit prompt draft.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "Direct atomic LLM rewriter; Rust validates edit intent, all image IDs, dimensions, and allowed fields.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1155",
+        "src/prompt_orchestrator.rs:1240",
+        "src/prompt_orchestrator.rs:1270"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "provider_prompt_rewriter",
+      "family": "image_edit",
+      "compatible_routes": [
+        "R12"
+      ],
+      "target_status": "active",
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 14,
+      "id": "TEXT_TO_VIDEO_PROMPT_REWRITER",
+      "version": "3.1.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "原子能力 Prompt",
+      "registry_layer": "B",
+      "path": "原子能力 Prompt/TEXT_TO_VIDEO_PROMPT_REWRITER.md",
+      "sha256": "49b8b17ef0d95e1474a7f7e6dfb088b7713835cf44e4491a2e5e6a2a669a0858",
+      "executor": "llm",
+      "position": "required after text-to-video route and input validation, before adapter submission",
+      "position_verified_all_paths": false,
+      "purpose": "Compile a provider-neutral text-to-video prompt draft.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "Direct atomic LLM rewriter; Rust validates duration, resolution, aspect ratio, audio policy, and allowed fields.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1155",
+        "src/prompt_orchestrator.rs:1240",
+        "src/prompt_orchestrator.rs:1270"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "provider_prompt_rewriter",
+      "family": "text_to_video",
+      "compatible_routes": [
+        "R05"
+      ],
+      "target_status": "active",
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 15,
+      "id": "IMAGE_TO_VIDEO_PROMPT_REWRITER",
+      "version": "3.1.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "原子能力 Prompt",
+      "registry_layer": "B",
+      "path": "原子能力 Prompt/IMAGE_TO_VIDEO_PROMPT_REWRITER.md",
+      "sha256": "5110b9efb90dbce410f9080d9692f82c7d091d8e1109af186b03b9ab3780a1a0",
+      "executor": "llm",
+      "position": "required after first-frame route and binding validation, before adapter submission",
+      "position_verified_all_paths": false,
+      "purpose": "Compile a provider-neutral image-to-video prompt draft.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "Direct atomic LLM rewriter; Rust requires the exact selected first-image ID and preserve_subject=true.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1155",
+        "src/prompt_orchestrator.rs:1240",
+        "src/prompt_orchestrator.rs:1270"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "provider_prompt_rewriter",
+      "family": "image_to_video",
+      "compatible_routes": [
+        "R04"
+      ],
+      "target_status": "active",
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 16,
+      "id": "VIDEO_EDIT_PROMPT_REWRITER",
+      "version": "3.1.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "原子能力 Prompt",
+      "registry_layer": "B",
+      "path": "原子能力 Prompt/VIDEO_EDIT_PROMPT_REWRITER.md",
+      "sha256": "8231eebc70fe08c2d6974137542e42550cec29dfa0e01b1b310ed001735fa108",
+      "executor": "llm",
+      "position": "required after video-edit route and input validation, before adapter submission",
+      "position_verified_all_paths": false,
+      "purpose": "Compile a provider-neutral video-edit prompt draft.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "Direct atomic LLM rewriter; Rust validates edit intent, duration policy, duration, resolution, and allowed fields.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1155",
+        "src/prompt_orchestrator.rs:1240",
+        "src/prompt_orchestrator.rs:1270"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "provider_prompt_rewriter",
+      "family": "video_edit",
+      "compatible_routes": [
+        "R08"
+      ],
+      "target_status": "active",
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 17,
+      "id": "TEXT_TO_SPEECH_SPEC_REWRITER",
+      "version": "2.1.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "原子能力 Prompt",
+      "registry_layer": "B",
+      "path": "原子能力 Prompt/TEXT_TO_SPEECH_SPEC_REWRITER.md",
+      "sha256": "730bb4bea6a8e75aeab5f43fab993c0d75281678719ae564cef5bc05b655d84d",
+      "executor": "llm",
+      "position": "after text-to-speech route and input validation, before adapter submission",
+      "purpose": "Compile a provider-neutral typed speech specification.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "Direct atomic LLM rewriter; current Rust requires the exact typed-audio top-level fields and rejects internal routing fields or URLs, but does not yet enforce non-empty spoken_text or pronunciation-hint members.",
+      "design_runtime_gap": "The prompt requires non-empty source-grounded spoken_text and non-empty token/pronunciation values for every hint; production currently validates shape only.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ],
+      "evidence": [
+        "src/prompt_orchestrator.rs:1914",
+        "src/prompt_orchestrator.rs:1965"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "provider_prompt_rewriter",
+      "family": "text_to_speech",
+      "compatible_routes": [
+        "R06"
+      ],
+      "target_status": "active"
+    },
+    {
+      "order": 18,
+      "id": "AUDIO_TRANSCRIPTION_SPEC_REWRITER",
+      "version": "2.1.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "原子能力 Prompt",
+      "registry_layer": "B",
+      "path": "原子能力 Prompt/AUDIO_TRANSCRIPTION_SPEC_REWRITER.md",
+      "sha256": "51b311963379b3b44ff93340365a60d3552b16a4245e3b6782508574d52f3f26",
+      "executor": "llm",
+      "position": "after transcription route and input validation, before adapter submission",
+      "purpose": "Compile a provider-neutral typed transcription specification.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "Direct atomic LLM rewriter; Rust requires exactly the typed audio top-level fields and rejects internal routing fields or URLs.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1914",
+        "src/prompt_orchestrator.rs:1965"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "provider_prompt_rewriter",
+      "family": "audio_transcription",
+      "compatible_routes": [
+        "R07"
+      ],
+      "target_status": "active",
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 19,
+      "id": "VLM_REFERENCE_UNDERSTANDING",
+      "version": "3.2.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "原子能力 Prompt",
+      "registry_layer": "B",
+      "path": "原子能力 Prompt/VLM_REFERENCE_UNDERSTANDING.md",
+      "sha256": "983c1d298bd75bb96f09b044add9506832110d9ed891b458a6952fd0f6ae631d",
+      "executor": "vlm",
+      "position": "before a reference-dependent atomic rewriter",
+      "purpose": "Extract observable image evidence for preserve constraints.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "media",
+        "observability",
+        "analysis_policy"
+      ],
+      "multimodal_content": [
+        "exactly one image_url block corresponding to the sole reference_images item"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "input_id",
+        "media_kind",
+        "coverage",
+        "observations",
+        "reference_roles",
+        "uncertainties",
+        "confidence",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Direct VLM reference-summary call with a deny-unknown typed draft.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:639",
+        "src/prompt_orchestrator.rs:1572",
+        "src/prompt_orchestrator.rs:1739"
+      ],
+      "input_schema": "observable_media_input.v1",
+      "output_schema": "media_analysis_result.v1",
+      "kind": "media_analysis",
+      "family": "reference_role_analysis",
+      "compatible_routes": [
+
+      ],
+      "target_status": "active",
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 20,
+      "id": "VLM_IMAGE_UNDERSTANDING",
+      "version": "2.1.0",
+      "status": "reserved",
+      "html_scope": "independent_understanding_only",
+      "runtime_enabled": false,
+      "group": "理解与通用质量门",
+      "registry_layer": null,
+      "path": "理解与通用质量门/VLM_IMAGE_UNDERSTANDING.md",
+      "sha256": "8b805f87ed6c5e48b7860972029cd53dd93b8ba661868fbb73b7d89c3e27c6f8",
+      "executor": "reserved_vlm",
+      "position": "reserved image understanding",
+      "purpose": "Define a general observable image-evidence contract.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "media",
+        "observability",
+        "analysis_policy"
+      ],
+      "multimodal_content": [
+        "exactly one image content block corresponding to input_id"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "input_id",
+        "media_kind",
+        "coverage",
+        "observations",
+        "reference_roles",
+        "uncertainties",
+        "confidence",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Reserved; no production call point. Output conservatively reuses the code-supported image evidence schema.",
+      "evidence": [
+        "source HTML item 20",
+        "src/prompt_orchestrator.rs:1572"
+      ],
+      "input_schema": "observable_media_input.v1",
+      "output_schema": "media_analysis_result.v1",
+      "kind": "media_analysis",
+      "family": "image_evidence_analysis",
+      "compatible_routes": [
+        "R20"
+      ],
+      "target_status": "active",
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 21,
+      "id": "VLM_VIDEO_UNDERSTANDING",
+      "version": "2.1.0",
+      "status": "reserved",
+      "html_scope": "independent_understanding_only",
+      "runtime_enabled": false,
+      "group": "理解与通用质量门",
+      "registry_layer": null,
+      "path": "理解与通用质量门/VLM_VIDEO_UNDERSTANDING.md",
+      "sha256": "96d7d98d7a5d7c09c36fcdaca326be75b843fbdb4bba05af264ce00987bffbf1",
+      "executor": "reserved_vlm",
+      "position": "reserved video evidence extraction",
+      "purpose": "Define a timestamped, evidence-linked video observation contract.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "media",
+        "observability",
+        "analysis_policy"
+      ],
+      "multimodal_content": [
+        "exactly one video content block corresponding to source_video_id"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "input_id",
+        "media_kind",
+        "coverage",
+        "observations",
+        "reference_roles",
+        "uncertainties",
+        "confidence",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Reserved; no production call point.",
+      "evidence": [
+        "source HTML item 21",
+        "prompts/support video-understanding contract"
+      ],
+      "input_schema": "observable_media_input.v1",
+      "output_schema": "media_analysis_result.v1",
+      "kind": "media_analysis",
+      "family": "video_evidence_analysis",
+      "compatible_routes": [
+        "R14"
+      ],
+      "target_status": "active",
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 22,
+      "id": "PROVIDER_PROMPT_SAFETY_CHECK",
+      "version": "2.1.0",
+      "status": "reserved",
+      "runtime_enabled": false,
+      "group": "理解与通用质量门",
+      "registry_layer": null,
+      "path": "理解与通用质量门/PROVIDER_PROMPT_SAFETY_CHECK.md",
+      "sha256": "cd5fa3252af933b7862822c2ad007395f0a14d07e5c402c8d5a3f212d5a39fe7",
+      "executor": "reserved_llm",
+      "position": "reserved after prompt rewrite and before submission",
+      "purpose": "Check prompt leakage, evidence, binding, consent, text-policy, and capability boundaries.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "provider_prompt_package",
+        "policy",
+        "consent_evidence",
+        "media_analysis_refs",
+        "prompt_profile"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "findings",
+        "correction_hint",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Reserved; no production call point and cannot override deterministic safety checks.",
+      "evidence": [
+        "source HTML item 22",
+        "prompts/support safety-check contract"
+      ],
+      "input_schema": "prompt_validation_input.v1",
+      "output_schema": "prompt_validation_report.v1",
+      "kind": "prompt_validation",
+      "family": "provider_prompt_safety",
+      "compatible_routes": [
+
+      ],
+      "target_status": "active_support",
+      "design_runtime_gap": "The deterministic mapper that converts an untrusted correction_hint into validated rewriter_correction_context.v1 is not proven in production.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "Runtime never injects correction_hint directly into a Rewriter.",
+        "Runtime validates and wraps the safety scope, failed finding references, and sanitized hint into rewriter_correction_context.v1; mapping failure blocks execution."
+      ]
+    },
+    {
+      "order": 23,
+      "id": "TEXT_QUALITY_GATE",
+      "version": "2.1.0",
+      "status": "reserved",
+      "runtime_enabled": false,
+      "group": "理解与通用质量门",
+      "registry_layer": null,
+      "path": "理解与通用质量门/TEXT_QUALITY_GATE.md",
+      "sha256": "83307df66c71ef30b24dd806f81a16fca95bfca97a0f23646127171102b7ca5f",
+      "executor": "reserved_llm",
+      "position": "reserved generic text quality gate",
+      "purpose": "Evaluate text requirements alignment, completeness, coherence, language, factual support, and output-contract readiness.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "requirements",
+        "execution_result",
+        "observable_evidence",
+        "quality_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "node_id",
+        "route_id",
+        "score",
+        "hard_fail",
+        "dimensions",
+        "findings",
+        "repairable",
+        "repair_context",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Reserved; no production call point and not an ACP check.",
+      "evidence": [
+        "source HTML item 23",
+        "prompts/support text-quality contract"
+      ],
+      "input_schema": "quality_gate_input.v1",
+      "output_schema": "quality_report.v1",
+      "kind": "quality_evaluator",
+      "family": "text_quality",
+      "compatible_routes": [
+        "R10"
+      ],
+      "target_status": "canonical",
+      "required_dimensions": [
+        "requirements_alignment",
+        "completeness",
+        "coherence",
+        "style_language",
+        "factual_support",
+        "output_contract"
+      ],
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 24,
+      "id": "PACKAGE_QUALITY_GATE",
+      "version": "2.1.0",
+      "status": "reserved",
+      "runtime_enabled": false,
+      "group": "理解与通用质量门",
+      "registry_layer": null,
+      "path": "理解与通用质量门/PACKAGE_QUALITY_GATE.md",
+      "sha256": "e219c44bd032a561b96a8e4fc83bde7f0d22c5a4656f7f9483abc9ad34343899",
+      "executor": "reserved_llm",
+      "position": "reserved generic package quality gate",
+      "purpose": "Evaluate package schema, references, dependency integrity, facts, and handoff boundaries.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "requirements",
+        "execution_result",
+        "observable_evidence",
+        "child_quality_reports",
+        "quality_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "node_id",
+        "route_id",
+        "score",
+        "hard_fail",
+        "dimensions",
+        "findings",
+        "repairable",
+        "repair_context",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Reserved; no production call point and not ACP_PACKAGE_QUALITY_CHECK.",
+      "evidence": [
+        "source HTML item 24",
+        "prompts/support package-quality contract"
+      ],
+      "input_schema": "quality_gate_input.v1",
+      "output_schema": "quality_report.v1",
+      "kind": "quality_evaluator",
+      "family": "package_quality",
+      "compatible_routes": [
+        "R01",
+        "R02",
+        "R15",
+        "R16",
+        "R17"
+      ],
+      "target_status": "canonical",
+      "required_dimensions": [
+        "structure_contract",
+        "cross_reference_integrity",
+        "requirement_coverage",
+        "child_quality_aggregation",
+        "delivery_readiness"
+      ],
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 25,
+      "id": "VISUAL_QUALITY_GATE",
+      "version": "2.2.0",
+      "status": "reserved",
+      "runtime_enabled": false,
+      "group": "理解与通用质量门",
+      "registry_layer": null,
+      "path": "理解与通用质量门/VISUAL_QUALITY_GATE.md",
+      "sha256": "9ee145220d513885bf210b7c4a77600cfbbfd8f0b5b71a39e6dedef88aa17f43",
+      "executor": "reserved_vlm",
+      "position": "reserved generic image quality gate",
+      "purpose": "Evaluate actual image technical, semantic, reference, and text-artifact quality.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "requirements",
+        "provider_prompt_evidence",
+        "execution_result",
+        "observable_evidence",
+        "quality_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "node_id",
+        "route_id",
+        "score",
+        "hard_fail",
+        "dimensions",
+        "findings",
+        "repairable",
+        "repair_context",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Reserved; no production call point and not ACP_IMAGE_QUALITY_CHECK.",
+      "evidence": [
+        "source HTML item 25",
+        "prompts/support visual-quality contract"
+      ],
+      "input_schema": "quality_gate_input.v1",
+      "output_schema": "quality_report.v1",
+      "kind": "quality_evaluator",
+      "family": "image_quality",
+      "compatible_routes": [
+        "R03",
+        "R12"
+      ],
+      "target_status": "canonical",
+      "required_dimensions": [
+        "technical_integrity",
+        "semantic_alignment",
+        "composition_style",
+        "reference_fidelity",
+        "text_artifacts",
+        "safety_compliance"
+      ],
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 26,
+      "id": "VIDEO_QUALITY_GATE",
+      "version": "2.1.0",
+      "status": "reserved",
+      "runtime_enabled": false,
+      "group": "理解与通用质量门",
+      "registry_layer": null,
+      "path": "理解与通用质量门/VIDEO_QUALITY_GATE.md",
+      "sha256": "d43d2dbd0bf5616f06b37045a1843cb80428c464efa021d6072ae7f8f5a2ea82",
+      "executor": "reserved_vlm",
+      "position": "reserved generic video quality gate",
+      "purpose": "Evaluate actual video technical, continuity, motion, text, and narrative quality.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "requirements",
+        "provider_prompt_evidence",
+        "execution_result",
+        "observable_evidence",
+        "quality_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "node_id",
+        "route_id",
+        "score",
+        "hard_fail",
+        "dimensions",
+        "findings",
+        "repairable",
+        "repair_context",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Reserved; no production call point and not ACP_VIDEO_QUALITY_CHECK.",
+      "evidence": [
+        "source HTML item 26",
+        "prompts/support video-quality contract"
+      ],
+      "input_schema": "quality_gate_input.v1",
+      "output_schema": "quality_report.v1",
+      "kind": "quality_evaluator",
+      "family": "video_quality",
+      "compatible_routes": [
+        "R04",
+        "R05",
+        "R08"
+      ],
+      "target_status": "canonical",
+      "required_dimensions": [
+        "technical_integrity",
+        "semantic_alignment",
+        "coverage_sufficiency",
+        "continuity",
+        "motion_quality",
+        "audio_text",
+        "ending_delivery"
+      ],
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 27,
+      "id": "AUDIO_QUALITY_GATE",
+      "version": "2.1.0",
+      "status": "reserved",
+      "runtime_enabled": false,
+      "group": "理解与通用质量门",
+      "registry_layer": null,
+      "path": "理解与通用质量门/AUDIO_QUALITY_GATE.md",
+      "sha256": "3a82a405f754b0f9abee6cfc7bffd383538a18433edcdb49bbcea7653ba48270",
+      "executor": "reserved_audio_or_llm",
+      "position": "reserved generic audio quality gate",
+      "purpose": "Evaluate audio technical integrity, content accuracy, intelligibility, voice style, prosody/timing, and safety from observable evidence.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "requirements",
+        "provider_prompt_evidence",
+        "execution_result",
+        "observable_evidence",
+        "quality_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "node_id",
+        "route_id",
+        "score",
+        "hard_fail",
+        "dimensions",
+        "findings",
+        "repairable",
+        "repair_context",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Reserved; no production call point and no claim of listening without audio evidence.",
+      "evidence": [
+        "source HTML item 27",
+        "prompts/support audio-quality contract"
+      ],
+      "input_schema": "quality_gate_input.v1",
+      "output_schema": "quality_report.v1",
+      "kind": "quality_evaluator",
+      "family": "audio_quality",
+      "compatible_routes": [
+        "R06",
+        "R07",
+        "R09"
+      ],
+      "target_status": "canonical",
+      "required_dimensions": [
+        "technical_integrity",
+        "content_accuracy",
+        "intelligibility",
+        "voice_style",
+        "prosody_timing",
+        "safety_compliance"
+      ],
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 28,
+      "id": "ACP_PACKAGE_QUALITY_CHECK",
+      "version": "2.2.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "ACP 内容验收与修复",
+      "registry_layer": null,
+      "path": "ACP 内容验收与修复/ACP_PACKAGE_QUALITY_CHECK.md",
+      "sha256": "917769cd39cbbd12a199e70fedcf2345641ed246100779a180b2a76d6acad296",
+      "executor": "llm_quality_check",
+      "position": "after package generation and before delivery",
+      "purpose": "Evaluate package goal match, business value, claim safety, structure, child-quality aggregation, and delivery safety.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "requirements",
+        "execution_evidence",
+        "observable_evidence",
+        "child_quality_reports",
+        "quality_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "node_id",
+        "route_id",
+        "score",
+        "hard_fail",
+        "dimensions",
+        "findings",
+        "repairable",
+        "repair_context",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "A legacy production ACP package-check position exists, but it uses a different request and threshold contract and does not load this stage-scoped prompt.",
+      "design_runtime_gap": "Production parity with acp_quality_check_input.v1 and the canonical quality_report.v1 policy-driven dimensions is not proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ],
+      "evidence": [
+        "src/main.rs:1683",
+        "src/main.rs:1730",
+        "src/main.rs:1831"
+      ],
+      "input_schema": "acp_quality_check_input.v1",
+      "output_schema": "quality_report.v1",
+      "kind": "quality_evaluator",
+      "family": "acp_package_quality_compat",
+      "compatible_routes": [
+        "R01",
+        "R02",
+        "R15",
+        "R16",
+        "R17"
+      ],
+      "target_status": "active_design_contract",
+      "required_dimensions": [
+        "goal_match",
+        "business_value",
+        "claim_safety",
+        "structure",
+        "child_quality_aggregation",
+        "delivery_safety"
+      ]
+    },
+    {
+      "order": 29,
+      "id": "ACP_IMAGE_QUALITY_CHECK",
+      "version": "2.2.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "ACP 内容验收与修复",
+      "registry_layer": null,
+      "path": "ACP 内容验收与修复/ACP_IMAGE_QUALITY_CHECK.md",
+      "sha256": "cbf1709a3376c728a9b96f88bc9c37cb745415dc34b9371296050a9d18c8a98f",
+      "executor": "vlm_quality_check",
+      "position": "after image generation and before delivery",
+      "purpose": "Evaluate actual image technical quality, semantic match, composition, reference preservation, text artifacts, and delivery safety.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "requirements",
+        "provider_prompt_evidence",
+        "execution_evidence",
+        "observable_evidence",
+        "quality_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "node_id",
+        "route_id",
+        "score",
+        "hard_fail",
+        "dimensions",
+        "findings",
+        "repairable",
+        "repair_context",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "A legacy production ACP image-check position exists, but it uses a different request and threshold contract and does not load this stage-scoped prompt.",
+      "evidence": [
+        "src/main.rs:1683",
+        "src/main.rs:1750",
+        "src/main.rs:1831"
+      ],
+      "input_schema": "acp_quality_check_input.v1",
+      "output_schema": "quality_report.v1",
+      "kind": "quality_evaluator",
+      "family": "acp_image_quality_compat",
+      "compatible_routes": [
+        "R03",
+        "R12"
+      ],
+      "target_status": "active_design_contract",
+      "required_dimensions": [
+        "technical",
+        "semantic_match",
+        "composition",
+        "reference_preservation",
+        "text_artifacts",
+        "delivery_safety"
+      ],
+      "design_runtime_gap": "Production parity with acp_quality_check_input.v1 and the canonical quality_report.v1 policy-driven dimensions is not proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 30,
+      "id": "ACP_IMAGE_QUALITY_REPAIR",
+      "version": "2.2.0",
+      "status": "active",
+      "runtime_enabled": false,
+      "group": "ACP 内容验收与修复",
+      "registry_layer": null,
+      "path": "ACP 内容验收与修复/ACP_IMAGE_QUALITY_REPAIR.md",
+      "sha256": "c1d535b3ba3c68b94d1b653fd2df7a0094372e8c2b5541eba4face72b61c5950",
+      "executor": "design_contract",
+      "position": "after a repairable image quality failure and before one rerun of the same Rewriter",
+      "purpose": "Convert a Runtime-projected quality_failure_slice.v1 for failed image findings into one stage-scoped, one-shot Rewriter correction context.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "rewriter_context",
+        "failed_quality_slice",
+        "observable_evidence",
+        "attempt",
+        "max_attempts"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "failed_finding_refs",
+        "preserve",
+        "change",
+        "constraints_to_add",
+        "constraints_to_remove",
+        "prompt_correction_hint",
+        "require_rewriter_rerun"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Target repair position: after a repairable quality failure and before rerunning the same Rewriter. The production call point with this contract is not wired.",
+      "evidence": [
+        "src/main.rs:2431",
+        "src/main.rs:2620"
+      ],
+      "input_schema": "repair_input.v1",
+      "output_schema": "rewriter_correction_context.v1",
+      "kind": "quality_repair",
+      "family": "acp_image_directed_repair",
+      "compatible_routes": [
+        "R03",
+        "R12"
+      ],
+      "target_status": "active_design_contract",
+      "design_runtime_gap": "Current production retry semantics do not yet prove the canonical quality_report.v1 validation, deterministic quality_failure_slice.v1 projection, repair_input.v1 call, and same-Rewriter rerun chain.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "Runtime validates the source quality_report.v1 node_id, route_id, and ACP Check provenance against rewriter_context outside the model call.",
+        "Runtime deterministically projects quality_failure_slice.v1 without translating, summarizing, normalizing, or recomputing copied status, score, hard_fail, selected dimensions, selected findings, repairability, repair context, or references.",
+        "Runtime rejects a failure slice unless every finding, requirement, and evidence reference resolves against the source report and current repair projection.",
+        "Repair runs only for hard_fail=false, repairable=true, attempt=1, and max_attempts=1.",
+        "Runtime injects the validated correction context into the original bound Rewriter input and reruns the same Rewriter exactly once."
+      ]
+    },
+    {
+      "order": 31,
+      "id": "ACP_VIDEO_QUALITY_CHECK",
+      "version": "2.2.0",
+      "status": "active",
+      "runtime_enabled": true,
+      "group": "ACP 内容验收与修复",
+      "registry_layer": null,
+      "path": "ACP 内容验收与修复/ACP_VIDEO_QUALITY_CHECK.md",
+      "sha256": "c507861041a35f73cd8ba0ef8741081ce579d1ca09fd58f19fc96b4f4311ddc7",
+      "executor": "vlm_quality_check",
+      "position": "after video generation and before delivery",
+      "purpose": "Evaluate actual video technical quality, content match, temporal continuity, motion, text/audio, ending, and delivery safety.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "requirements",
+        "provider_prompt_evidence",
+        "execution_evidence",
+        "observable_evidence",
+        "quality_policy"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "node_id",
+        "route_id",
+        "score",
+        "hard_fail",
+        "dimensions",
+        "findings",
+        "repairable",
+        "repair_context",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "A legacy production ACP video-check position exists, but it uses a different request and threshold contract and does not load this stage-scoped prompt.",
+      "evidence": [
+        "src/main.rs:1683",
+        "src/main.rs:1771",
+        "src/main.rs:1831"
+      ],
+      "input_schema": "acp_quality_check_input.v1",
+      "output_schema": "quality_report.v1",
+      "kind": "quality_evaluator",
+      "family": "acp_video_quality_compat",
+      "compatible_routes": [
+        "R04",
+        "R05",
+        "R08"
+      ],
+      "target_status": "active_design_contract",
+      "required_dimensions": [
+        "technical",
+        "content_match",
+        "temporal_continuity",
+        "motion",
+        "text_audio",
+        "ending",
+        "delivery_safety"
+      ],
+      "design_runtime_gap": "Production parity with acp_quality_check_input.v1 and the canonical quality_report.v1 policy-driven dimensions is not proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 32,
+      "id": "ACP_VIDEO_QUALITY_REPAIR",
+      "version": "2.2.0",
+      "status": "active",
+      "runtime_enabled": false,
+      "group": "ACP 内容验收与修复",
+      "registry_layer": null,
+      "path": "ACP 内容验收与修复/ACP_VIDEO_QUALITY_REPAIR.md",
+      "sha256": "03a9b9e459711274d92a9f740daed71196487d3498b37f48452d2cd39e5eee46",
+      "executor": "design_contract",
+      "position": "after a repairable video quality failure and before one rerun of the same Rewriter",
+      "purpose": "Convert a Runtime-projected quality_failure_slice.v1 for failed video findings into one stage-scoped, one-shot Rewriter correction context.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "rewriter_context",
+        "failed_quality_slice",
+        "observable_evidence",
+        "attempt",
+        "max_attempts"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "failed_finding_refs",
+        "preserve",
+        "change",
+        "constraints_to_add",
+        "constraints_to_remove",
+        "prompt_correction_hint",
+        "require_rewriter_rerun"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Target repair position: after a repairable quality failure and before rerunning the same Rewriter. The production call point with this contract is not wired.",
+      "evidence": [
+        "src/main.rs:2431",
+        "src/main.rs:2620"
+      ],
+      "input_schema": "repair_input.v1",
+      "output_schema": "rewriter_correction_context.v1",
+      "kind": "quality_repair",
+      "family": "acp_video_directed_repair",
+      "compatible_routes": [
+        "R04",
+        "R05",
+        "R08"
+      ],
+      "target_status": "active_design_contract",
+      "design_runtime_gap": "Current production retry semantics do not yet prove the canonical quality_report.v1 validation, deterministic quality_failure_slice.v1 projection, repair_input.v1 call, and same-Rewriter rerun chain.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "Runtime validates the source quality_report.v1 node_id, route_id, and ACP Check provenance against rewriter_context outside the model call.",
+        "Runtime deterministically projects quality_failure_slice.v1 without translating, summarizing, normalizing, or recomputing copied status, score, hard_fail, selected dimensions, selected findings, repairability, repair context, or references.",
+        "Runtime rejects a failure slice unless every finding, requirement, and evidence reference resolves against the source report and current repair projection.",
+        "Repair runs only for hard_fail=false, repairable=true, attempt=1, and max_attempts=1.",
+        "Runtime injects the validated correction context into the original bound Rewriter input and reruns the same Rewriter exactly once."
+      ]
+    },
+    {
+      "order": 33,
+      "id": "STRICT_JSON_REPAIR",
+      "version": "2.1.0",
+      "status": "reserved",
+      "runtime_enabled": false,
+      "group": "严格 JSON 修复",
+      "registry_layer": null,
+      "path": "严格 JSON 修复/STRICT_JSON_REPAIR.md",
+      "sha256": "08d228350279b35010dce9d736b0b7d8aee31389c1e74fc5830d6e53da183708",
+      "executor": "reserved_llm",
+      "position": "reserved generic structured-output repair",
+      "purpose": "Repair raw_model_output against a caller-supplied target schema without re-running the original semantic task or inventing business values.",
+      "input_keys": [
+        "schema_version",
+        "raw_model_output",
+        "target_schema_id",
+        "target_schema",
+        "validation_errors",
+        "immutable_fields"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "target_schema_id",
+        "repaired_output",
+        "immutable_fields_verified",
+        "remaining_errors"
+      ],
+      "placeholders": [
+
+      ],
+      "runtime_binding": "Reserved; no production call point.",
+      "evidence": [
+        "source HTML item 33",
+        "prompts/support strict-JSON contract"
+      ],
+      "input_schema": "strict_json_repair_input.v1",
+      "output_schema": "strict_json_repair_result.v1",
+      "kind": "schema_repair",
+      "family": "strict_json_repair",
+      "compatible_routes": [
+
+      ],
+      "target_status": "active_support",
+      "design_runtime_gap": "Production does not load this standalone registry, and exact parity between the documented stage-local projection and the current Rust call contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch."
+      ]
+    },
+    {
+      "order": 34,
+      "id": "IMAGE_PROMPT_DETERMINISTIC_FALLBACK",
+      "version": "3.1.0",
+      "status": "active_deterministic",
+      "runtime_enabled": true,
+      "group": "确定性 fallback",
+      "registry_layer": "C",
+      "path": "确定性 fallback/IMAGE_PROMPT_DETERMINISTIC_FALLBACK.md",
+      "sha256": "27551004182ffde8bbe5af931e58a5f1d6688039c538e3181ba04aa1ebed0c85",
+      "executor": "deterministic_compiler_contract",
+      "position": "selected directly in deterministic mode, or after an unavailable or invalid image LLM rewrite; before adapter submission",
+      "purpose": "Render a deterministic text-to-image prompt.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "A code-side deterministic compiler position exists. This standalone Markdown is a design contract; production does not load or render it as a placeholder template.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1191",
+        "src/prompt_orchestrator.rs:2664"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "deterministic_rewriter",
+      "family": "text_to_image",
+      "compatible_routes": [
+        "R03"
+      ],
+      "target_status": "active_deterministic",
+      "design_runtime_gap": "Exact parity between the code-side deterministic compiler and this standalone stage-scoped contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "The code-side compiler consumes the same stage-local input schema and emits the same provider_prompt_package.v1 output schema.",
+        "No standalone Markdown placeholder rendering is claimed or required."
+      ]
+    },
+    {
+      "order": 35,
+      "id": "IMAGE_EDIT_PROMPT_DETERMINISTIC_FALLBACK",
+      "version": "3.1.0",
+      "status": "active_deterministic",
+      "runtime_enabled": true,
+      "group": "确定性 fallback",
+      "registry_layer": "C",
+      "path": "确定性 fallback/IMAGE_EDIT_PROMPT_DETERMINISTIC_FALLBACK.md",
+      "sha256": "92ab9543d75fca899711da2a54ace48c3d44e696dbc71b3ab3771ab50558b90a",
+      "executor": "deterministic_compiler_contract",
+      "position": "selected directly in deterministic mode, or after an unavailable or invalid image-edit LLM rewrite; before adapter submission",
+      "purpose": "Render a deterministic image-edit prompt with explicit preserve and change boundaries.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "A code-side deterministic compiler position exists. This standalone Markdown is a design contract; production does not load or render it as a placeholder template.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1191",
+        "src/prompt_orchestrator.rs:2697"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "deterministic_rewriter",
+      "family": "image_edit",
+      "compatible_routes": [
+        "R12"
+      ],
+      "target_status": "active_deterministic",
+      "design_runtime_gap": "Exact parity between the code-side deterministic compiler and this standalone stage-scoped contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "The code-side compiler consumes the same stage-local input schema and emits the same provider_prompt_package.v1 output schema.",
+        "No standalone Markdown placeholder rendering is claimed or required."
+      ]
+    },
+    {
+      "order": 36,
+      "id": "TEXT_TO_VIDEO_PROMPT_DETERMINISTIC_FALLBACK",
+      "version": "3.1.0",
+      "status": "active_deterministic",
+      "runtime_enabled": true,
+      "group": "确定性 fallback",
+      "registry_layer": "C",
+      "path": "确定性 fallback/TEXT_TO_VIDEO_PROMPT_DETERMINISTIC_FALLBACK.md",
+      "sha256": "ad13b6e60c84ffc6e08af9f9ed83f3d501e1d59dda98e7be52d34e3fa1ac76ad",
+      "executor": "deterministic_compiler_contract",
+      "position": "selected directly in deterministic mode, or after an unavailable or invalid text-to-video LLM rewrite; before adapter submission",
+      "purpose": "Render a deterministic text-to-video prompt.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "A code-side deterministic compiler position exists. This standalone Markdown is a design contract; production does not load or render it as a placeholder template.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1191",
+        "src/prompt_orchestrator.rs:2739"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "deterministic_rewriter",
+      "family": "text_to_video",
+      "compatible_routes": [
+        "R05"
+      ],
+      "target_status": "active_deterministic",
+      "design_runtime_gap": "Exact parity between the code-side deterministic compiler and this standalone stage-scoped contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "The code-side compiler consumes the same stage-local input schema and emits the same provider_prompt_package.v1 output schema.",
+        "No standalone Markdown placeholder rendering is claimed or required."
+      ]
+    },
+    {
+      "order": 37,
+      "id": "IMAGE_TO_VIDEO_PROMPT_DETERMINISTIC_FALLBACK",
+      "version": "3.1.0",
+      "status": "active_deterministic",
+      "runtime_enabled": true,
+      "group": "确定性 fallback",
+      "registry_layer": "C",
+      "path": "确定性 fallback/IMAGE_TO_VIDEO_PROMPT_DETERMINISTIC_FALLBACK.md",
+      "sha256": "e3659fa462e0994da6a62099ad43894d3c002a3dca3c202ec810335f61ee1cda",
+      "executor": "deterministic_compiler_contract",
+      "position": "selected directly in deterministic mode, or after an unavailable or invalid image-to-video LLM rewrite; before adapter submission",
+      "purpose": "Render a deterministic first-frame video prompt.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "A code-side deterministic compiler position exists. This standalone Markdown is a design contract; production does not load or render it as a placeholder template.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1191",
+        "src/prompt_orchestrator.rs:2763"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "deterministic_rewriter",
+      "family": "image_to_video",
+      "compatible_routes": [
+        "R04"
+      ],
+      "target_status": "active_deterministic",
+      "design_runtime_gap": "Exact parity between the code-side deterministic compiler and this standalone stage-scoped contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "The code-side compiler consumes the same stage-local input schema and emits the same provider_prompt_package.v1 output schema.",
+        "No standalone Markdown placeholder rendering is claimed or required."
+      ]
+    },
+    {
+      "order": 38,
+      "id": "VIDEO_EDIT_PROMPT_DETERMINISTIC_FALLBACK",
+      "version": "3.1.0",
+      "status": "active_deterministic",
+      "runtime_enabled": true,
+      "group": "确定性 fallback",
+      "registry_layer": "C",
+      "path": "确定性 fallback/VIDEO_EDIT_PROMPT_DETERMINISTIC_FALLBACK.md",
+      "sha256": "368a4fa2d6747d4cda541d9a258799b904e6a40740fb1c4ee4b62b3597083427",
+      "executor": "deterministic_compiler_contract",
+      "position": "selected directly in deterministic mode, or after an unavailable or invalid video-edit LLM rewrite; before adapter submission",
+      "purpose": "Render a deterministic video-edit prompt with explicit preserve and change boundaries.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "A code-side deterministic compiler position exists. This standalone Markdown is a design contract; production does not load or render it as a placeholder template.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1191",
+        "src/prompt_orchestrator.rs:2796"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "deterministic_rewriter",
+      "family": "video_edit",
+      "compatible_routes": [
+        "R08"
+      ],
+      "target_status": "active_deterministic",
+      "design_runtime_gap": "Exact parity between the code-side deterministic compiler and this standalone stage-scoped contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "The code-side compiler consumes the same stage-local input schema and emits the same provider_prompt_package.v1 output schema.",
+        "No standalone Markdown placeholder rendering is claimed or required."
+      ]
+    },
+    {
+      "order": 39,
+      "id": "TEXT_TO_SPEECH_SPEC_DETERMINISTIC",
+      "version": "2.1.0",
+      "status": "active_deterministic",
+      "runtime_enabled": true,
+      "group": "确定性 fallback",
+      "registry_layer": "C",
+      "path": "确定性 fallback/TEXT_TO_SPEECH_SPEC_DETERMINISTIC.md",
+      "sha256": "f495e32865097b764180eb6762a3d9dfc1d412a59947f239ff8f54823cfec739",
+      "executor": "deterministic_compiler_contract",
+      "position": "selected directly in deterministic mode, or after an unavailable or invalid speech-spec LLM rewrite; before adapter submission",
+      "purpose": "Render a typed speech specification as JSON.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "A code-side deterministic compiler position exists. This standalone Markdown is a design contract; production does not load or render it as a placeholder template.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1965",
+        "src/prompt_orchestrator.rs:2829"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "deterministic_rewriter",
+      "family": "text_to_speech",
+      "compatible_routes": [
+        "R06"
+      ],
+      "target_status": "active_deterministic",
+      "design_runtime_gap": "Exact parity between the code-side deterministic compiler and this standalone stage-scoped contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "The code-side compiler consumes the same stage-local input schema and emits the same provider_prompt_package.v1 output schema.",
+        "No standalone Markdown placeholder rendering is claimed or required."
+      ]
+    },
+    {
+      "order": 40,
+      "id": "AUDIO_TRANSCRIPTION_SPEC_DETERMINISTIC",
+      "version": "2.1.0",
+      "status": "active_deterministic",
+      "runtime_enabled": true,
+      "group": "确定性 fallback",
+      "registry_layer": "C",
+      "path": "确定性 fallback/AUDIO_TRANSCRIPTION_SPEC_DETERMINISTIC.md",
+      "sha256": "c04fe4c978c7784ea514ec6fd80b87b98da6542db476b12a0a102fbb3b944b9d",
+      "executor": "deterministic_compiler_contract",
+      "position": "selected directly in deterministic mode, or after an unavailable or invalid transcription-spec LLM rewrite; before adapter submission",
+      "purpose": "Render a typed transcription specification as JSON.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "A code-side deterministic compiler position exists. This standalone Markdown is a design contract; production does not load or render it as a placeholder template.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1965",
+        "src/prompt_orchestrator.rs:2847"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "deterministic_rewriter",
+      "family": "audio_transcription",
+      "compatible_routes": [
+        "R07"
+      ],
+      "target_status": "active_deterministic",
+      "design_runtime_gap": "Exact parity between the code-side deterministic compiler and this standalone stage-scoped contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "The code-side compiler consumes the same stage-local input schema and emits the same provider_prompt_package.v1 output schema.",
+        "No standalone Markdown placeholder rendering is claimed or required."
+      ]
+    },
+    {
+      "order": 41,
+      "id": "VOICE_SEPARATION_SPEC_DETERMINISTIC",
+      "version": "2.1.0",
+      "status": "active_deterministic",
+      "runtime_enabled": true,
+      "group": "确定性 fallback",
+      "registry_layer": "C",
+      "path": "确定性 fallback/VOICE_SEPARATION_SPEC_DETERMINISTIC.md",
+      "sha256": "8c8f8424e099923748a3fae87398e7d2c6460cd18259cb567a9eb02e559136e5",
+      "executor": "deterministic_compiler_contract",
+      "position": "selected directly as the deterministic voice-separation spec after route and input validation, before adapter submission",
+      "purpose": "Render a typed voice-separation specification as JSON.",
+      "input_keys": [
+        "schema_version",
+        "prompt_call",
+        "node",
+        "resolved_context",
+        "assets",
+        "upstream_outputs",
+        "binding",
+        "runtime_policy",
+        "correction_context"
+      ],
+      "output_keys": [
+        "schema_version",
+        "status",
+        "reason",
+        "node_id",
+        "route_id",
+        "binding_id",
+        "prompt",
+        "negative_prompt",
+        "reference_bindings",
+        "parameters",
+        "validation",
+        "provenance"
+      ],
+      "placeholders": [
+
+      ],
+      "selects_endpoint": false,
+      "runtime_binding": "A code-side deterministic compiler position exists. This standalone Markdown is a design contract; production does not load or render it as a placeholder template.",
+      "evidence": [
+        "src/prompt_orchestrator.rs:1965",
+        "src/prompt_orchestrator.rs:2864"
+      ],
+      "input_schema": "bound_rewriter_input.v1",
+      "output_schema": "provider_prompt_package.v1",
+      "kind": "deterministic_rewriter",
+      "family": "voice_separation",
+      "compatible_routes": [
+        "R09"
+      ],
+      "target_status": "active_deterministic",
+      "design_runtime_gap": "Exact parity between the code-side deterministic compiler and this standalone stage-scoped contract has not been proven.",
+      "required_runtime_assertions": [
+        "Runtime projects only the documented top-level input keys before the model call.",
+        "Runtime excludes global trace, identity, idempotency, and session association fields before the model call.",
+        "The validator rejects unknown input and output fields and fails closed on contract mismatch.",
+        "The code-side compiler consumes the same stage-local input schema and emits the same provider_prompt_package.v1 output schema.",
+        "No standalone Markdown placeholder rendering is claimed or required."
+      ]
+    }
+  ],
+  "language": "zh-CN",
+  "edition_role": "human_review_reference"
+}
