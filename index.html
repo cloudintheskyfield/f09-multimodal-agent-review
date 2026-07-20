@@ -34,6 +34,14 @@
     @media(max-width:640px){.c3-audit-strip,.c3-field-flow-title,.c3-stage-head{align-items:flex-start;flex-direction:column}.c3-baton::before{left:18px}.c3-stage{grid-template-columns:38px minmax(0,1fr);gap:9px}.c3-stage-marker{width:38px;height:38px;font-size:12px}.c3-api-head{grid-template-columns:38px minmax(0,1fr)}.c3-api-body,.c3-stage-cell,.c3-sse,.c3-review-point{padding-left:12px;padding-right:12px}.c3-code{font-size:9px}.c3-node-lanes{grid-template-columns:1fr}.c3-ledger{margin-left:-4px;margin-right:-4px}}
     .prompt-file-link{color:var(--green);text-decoration-thickness:1px;text-underline-offset:3px}.prompt-file-link:hover{color:var(--accent)}.prompt-file-link:focus-visible,.prompt-dialog-source:focus-visible,.prompt-reference-button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.prompt-dialog-source{margin-left:auto;color:var(--green);font-size:12px;font-weight:800;text-decoration-thickness:1px;text-underline-offset:3px;white-space:nowrap}.prompt-dialog-source:hover{color:var(--accent)}.prompt-reference-card{margin:0 0 16px;padding:16px;border-left:3px solid var(--accent);background:var(--surface-muted)}.prompt-reference-card p{margin:0;color:var(--muted);font-size:12px}.prompt-reference-actions{display:flex;flex-wrap:wrap;align-items:center;gap:9px 14px;margin-top:12px}.prompt-reference-button{padding:8px 11px;border:1px solid var(--accent);border-radius:5px;background:#fff;color:var(--accent);font:800 12px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;cursor:pointer}.prompt-reference-button:hover{background:var(--accent-soft)}@media(max-width:640px){.prompt-dialog-source{margin-left:0}.prompt-reference-actions{align-items:stretch;flex-direction:column}.prompt-reference-button,.prompt-reference-actions .prompt-file-link{width:100%}}
   </style>
+  <style id="directory-scrollspy-style">
+    .directory a.is-current{position:relative;border-color:#facc15;background:rgba(250,204,21,.14);color:#fff;box-shadow:inset 3px 0 0 #facc15}
+    .directory a.is-current .num,.directory a.is-current span:last-child{color:#facc15!important}
+    .directory .s32-directory-children a.is-current{border-color:rgba(250,204,21,.58);border-left-color:#facc15;background:rgba(250,204,21,.12);color:#fff;box-shadow:inset 3px 0 0 #facc15}
+    .directory a.is-current:hover,.directory .s32-directory-children a.is-current:hover{border-color:#facc15;background:rgba(250,204,21,.18)}
+    .directory a.is-current:focus-visible,.directory .s32-directory-children a.is-current:focus-visible{border-color:#facc15;outline:2px solid #fff;outline-offset:2px}
+    @media(max-width:980px){.directory a.is-current,.directory .s32-directory-children a.is-current{border-color:#facc15;background:rgba(250,204,21,.16);box-shadow:inset 0 -3px 0 #facc15}}
+  </style>
 </head>
 <body>
   <div class="layout">
@@ -1790,46 +1798,57 @@ where
           #section-3-3 .s33-subhead small{display:block;margin-top:3px;color:var(--s33-muted);font-size:11px;font-weight:500}
           #section-3-3 .s33-intro{max-width:940px;margin:0 0 13px;color:var(--s33-muted);font-size:12px;line-height:1.7}
           #section-3-3 .s33-kicker{display:inline-block;margin-bottom:6px;color:var(--s33-teal);font:900 10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}
-          #section-3-3 .s33-scroll{max-width:100%;overflow-x:auto;border:1px solid var(--s33-line);background:#fff;overscroll-behavior-inline:contain;scrollbar-gutter:stable;scrollbar-color:#679f97 #edf2f7}
+          #section-3-3 .s33-scroll{width:100%;min-width:0;max-width:100%;overflow-x:auto;border:1px solid var(--s33-line);background:#fff;overscroll-behavior-inline:contain;scrollbar-gutter:stable;scrollbar-color:#679f97 #edf2f7}
           #section-3-3 .s33-scroll:focus-visible{outline:3px solid rgba(8,123,106,.32);outline-offset:2px}
           #section-3-3 .s33-scroll-hint{margin:6px 0 14px;color:#52667d;font-size:10.5px;font-weight:750;text-align:right}
           #section-3-3 .s33-scroll-hint::before{color:var(--s33-teal);content:"↔ ";font-weight:900}
-          #section-3-3 .s33-main-flow{display:flex;align-items:stretch;min-width:2860px;padding:20px;background:#f5f7fa}
-          #section-3-3 .s33-flow-node{position:relative;flex:0 0 172px;min-height:332px;padding:13px 13px 14px;border:1px solid #aebdce;border-top:6px solid var(--s33-navy);background:#fff}
-          #section-3-3 .s33-flow-node.s33-memory{flex-basis:218px;border-color:#9fc2e7;border-top-color:var(--s33-blue);background:var(--s33-blue-soft)}
-          #section-3-3 .s33-flow-node.s33-context{flex-basis:220px;border-top-color:var(--s33-blue);background:#f5f9ff}
-          #section-3-3 .s33-flow-node.s33-host{flex-basis:242px;border-color:#c4afe8;border-top-color:var(--s33-purple);background:var(--s33-purple-soft)}
-          #section-3-3 .s33-flow-node.s33-return{flex-basis:306px;border-color:#98cbbc;border-top-color:var(--s33-green);background:var(--s33-green-soft)}
-          #section-3-3 .s33-flow-tag{display:inline-block;margin-bottom:12px;padding:2px 6px;border:1px solid currentColor;color:var(--s33-navy);font:900 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em}
+          #section-3-3 .s33-main-flow{display:grid;grid-template-columns:minmax(145px,15fr) 28px minmax(540px,70fr) 28px minmax(130px,15fr);align-items:stretch;width:100%;min-width:0;padding:14px;background:#f5f7fa}
+          #section-3-3 .s33-upstream{min-width:0;border:1px solid #aebdce;border-top:6px solid var(--s33-navy);background:#fff}
+          #section-3-3 .s33-upstream-head{padding:9px 10px;background:var(--s33-navy);color:#fff}
+          #section-3-3 .s33-upstream-head b{display:block;font-size:12px;line-height:1.35}
+          #section-3-3 .s33-upstream-head span{display:block;margin-top:3px;color:#cdd9e6;font:800 9.5px ui-monospace,SFMono-Regular,Menlo,monospace}
+          #section-3-3 .s33-upstream-node{min-width:0;padding:8px 10px;background:#fff}
+          #section-3-3 .s33-upstream-node.s33-memory,#section-3-3 .s33-upstream-node.s33-context{background:var(--s33-blue-soft)}
+          #section-3-3 .s33-upstream-node.s33-host{background:var(--s33-purple-soft)}
+          #section-3-3 .s33-upstream-node h4{margin:0 0 3px;color:var(--s33-ink);font-size:11.5px;line-height:1.4}
+          #section-3-3 .s33-upstream-node p{margin:0;color:#4c5d72;font-size:11.5px;line-height:1.5}
+          #section-3-3 .s33-upstream-node code{color:#24465b;font-size:10.5px;font-weight:750}
+          #section-3-3 .s33-upstream-link{display:flex;align-items:center;gap:5px;min-height:22px;padding:2px 9px;border-top:1px solid #ccd6e2;border-bottom:1px solid #ccd6e2;background:#f7f9fb;color:var(--s33-navy);font:900 9.5px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace}
+          #section-3-3 .s33-upstream-link::before{content:"↓";font-size:12px}
+          #section-3-3 .s33-upstream-link.s33-target{border-top-style:dashed;border-bottom-style:dashed;color:var(--s33-blue);background:#f2f7ff}
+          #section-3-3 .s33-flow-node{position:relative;min-width:0;min-height:100%;padding:13px;border:1px solid #aebdce;border-top:6px solid var(--s33-navy);background:#fff}
+          #section-3-3 .s33-flow-node.s33-return{border-color:#98cbbc;border-top-color:var(--s33-green);background:var(--s33-green-soft)}
+          #section-3-3 .s33-flow-tag{display:inline-block;margin-bottom:12px;padding:2px 6px;border:1px solid currentColor;color:var(--s33-navy);font:900 9.5px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em}
           #section-3-3 .s33-memory .s33-flow-tag,#section-3-3 .s33-context .s33-flow-tag{color:var(--s33-blue)}
           #section-3-3 .s33-host .s33-flow-tag{color:var(--s33-purple)}
           #section-3-3 .s33-return .s33-flow-tag{color:var(--s33-green)}
           #section-3-3 .s33-flow-node h4{margin:0 0 8px;color:var(--s33-ink);font-size:13px;line-height:1.45}
-          #section-3-3 .s33-flow-node p{margin:0;color:#4c5d72;font-size:10.5px;line-height:1.62}
+          #section-3-3 .s33-flow-node p{margin:0;color:#4c5d72;font-size:11.5px;line-height:1.62}
           #section-3-3 .s33-flow-node p+p{margin-top:8px}
-          #section-3-3 .s33-flow-node code{color:#24465b;font-size:10px;font-weight:750}
-          #section-3-3 .s33-arrow{position:relative;display:flex;flex:0 0 42px;align-items:center;justify-content:center;color:var(--s33-navy)}
+          #section-3-3 .s33-flow-node code{color:#24465b;font-size:10.5px;font-weight:750}
+          #section-3-3 .s33-arrow{position:relative;display:flex;min-width:0;align-items:center;justify-content:center;color:var(--s33-navy)}
           #section-3-3 .s33-arrow::before{width:100%;border-top:2px solid currentColor;content:""}
           #section-3-3 .s33-arrow::after{position:absolute;right:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid currentColor;content:""}
-          #section-3-3 .s33-arrow span{position:absolute;top:78px;width:80px;padding:2px;background:#f5f7fa;color:#4b5e75;font:800 8px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;text-align:center}
+          #section-3-3 .s33-arrow span{position:absolute;top:73px;width:64px;padding:2px;background:#f5f7fa;color:#4b5e75;font:800 9.5px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;text-align:center}
           #section-3-3 .s33-arrow.s33-target{color:var(--s33-blue)}
           #section-3-3 .s33-arrow.s33-target::before{border-top-style:dashed}
           #section-3-3 .s33-arrow.s33-return-arrow{color:var(--s33-green)}
-          #section-3-3 .s33-mma{flex:0 0 1620px;min-height:332px;border:3px solid var(--s33-teal);background:#dff4ee;box-shadow:inset 0 0 0 5px #fff}
+          #section-3-3 .s33-mma{width:100%;min-width:0;border:3px solid var(--s33-teal);background:#dff4ee;box-shadow:inset 0 0 0 5px #fff}
           #section-3-3 .s33-mma-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:12px 15px;background:var(--s33-teal-deep);color:#fff}
           #section-3-3 .s33-mma-head b{font-size:15px;letter-spacing:.01em}
           #section-3-3 .s33-mma-head span{color:#cbfff3;font:800 9.5px ui-monospace,SFMono-Regular,Menlo,monospace;text-align:right}
-          #section-3-3 .s33-mma-entry{margin:10px 12px 8px;padding:8px 10px;border-left:5px solid var(--s33-purple);background:#fff;color:#4f3a68;font-size:10px;line-height:1.55}
-          #section-3-3 .s33-overview-stages{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;padding:0 12px 10px}
-          #section-3-3 .s33-overview-stage{position:relative;min-height:184px;padding:36px 9px 9px;border:1px solid #8bbdb1;background:#fff}
-          #section-3-3 .s33-overview-stage:not(:last-child)::after{position:absolute;top:83px;right:-8px;z-index:2;color:var(--s33-teal);content:"→";font-weight:900}
+          #section-3-3 .s33-mma-entry{margin:10px 12px 8px;padding:8px 10px;border-left:5px solid var(--s33-purple);background:#fff;color:#4f3a68;font-size:11.5px;line-height:1.55}
+          #section-3-3 .s33-overview-stages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:0 12px 10px}
+          #section-3-3 .s33-overview-stage{position:relative;min-height:158px;padding:36px 9px 9px;border:1px solid #8bbdb1;background:#fff}
+          #section-3-3 .s33-overview-stage:not(:last-child)::after{position:absolute;top:73px;right:-8px;z-index:2;color:var(--s33-teal);content:"→";font-weight:900}
+          #section-3-3 .s33-overview-stage:nth-child(4)::after{top:auto;right:50%;bottom:-12px;content:"↓"}
           #section-3-3 .s33-overview-no{position:absolute;top:9px;left:9px;color:var(--s33-teal);font:900 17px ui-monospace,SFMono-Regular,Menlo,monospace}
-          #section-3-3 .s33-overview-stage b{display:block;margin-bottom:5px;color:var(--s33-ink);font-size:10.5px;line-height:1.35}
-          #section-3-3 .s33-overview-stage p{margin:0;color:#4e6274;font-size:9.3px;line-height:1.5}
-          #section-3-3 .s33-overview-stage code{font-size:8.8px}
-          #section-3-3 .s33-provider{margin-top:7px;padding:6px;border:1px solid #e3b180;background:var(--s33-orange-soft);color:#704116;font-size:8.7px;line-height:1.4}
-          #section-3-3 .s33-provider b{margin:0 0 2px;color:var(--s33-orange);font-size:8.8px}
-          #section-3-3 .s33-reserved{margin:0 12px 10px;padding:5px 8px;border:1px dashed #9ca8b7;background:#f3f5f7;color:#68778a;font-size:9px;line-height:1.45;text-decoration:line-through}
+          #section-3-3 .s33-overview-stage b{display:block;margin-bottom:5px;color:var(--s33-ink);font-size:11.5px;line-height:1.35}
+          #section-3-3 .s33-overview-stage p{margin:0;color:#4e6274;font-size:11.5px;line-height:1.5}
+          #section-3-3 .s33-overview-stage code{font-size:10.5px}
+          #section-3-3 .s33-provider{margin-top:7px;padding:6px;border:1px solid #e3b180;background:var(--s33-orange-soft);color:#704116;font-size:10.5px;line-height:1.4}
+          #section-3-3 .s33-provider b{margin:0 0 2px;color:var(--s33-orange);font-size:10px}
+          #section-3-3 .s33-reserved{margin:0 12px 10px;padding:6px 8px;border:1px dashed #9ca8b7;background:#f3f5f7;color:#68778a;font-size:10.5px;line-height:1.45;text-decoration:line-through}
           #section-3-3 .s33-flow-foot{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--s33-line);border-top:0}
           #section-3-3 .s33-status{padding:13px 15px;background:#fff;color:#45576d;font-size:11px;line-height:1.65}
           #section-3-3 .s33-status+.s33-status{border-left:1px solid var(--s33-line)}
@@ -1859,6 +1878,11 @@ where
           #section-3-3 .s33-boundary-label{display:inline-block;margin-top:3px;padding:1px 5px;border:1px solid currentColor;color:var(--s33-green);font:800 9px ui-monospace,SFMono-Regular,Menlo,monospace}
           #section-3-3 .s33-boundary-label.s33-host-only{color:var(--s33-purple)}
           #section-3-3 .s33-boundary-label.s33-internal{color:var(--s33-orange)}
+          #section-3-3 .s33-scan-legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 0 18px;padding:10px 12px;border:1px solid var(--s33-line);background:#f8fafc;color:#516176;font-size:10.5px;line-height:1.55}
+          #section-3-3 .s33-scan-chip{display:inline-block;margin-right:5px;padding:1px 6px;border:1px solid currentColor;color:var(--s33-green);font:900 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.03em}
+          #section-3-3 .s33-scan-chip.s33-chip-host{color:var(--s33-purple)}
+          #section-3-3 .s33-scan-chip.s33-chip-internal{color:var(--s33-orange)}
+          #section-3-3 .s33-scan-chip.s33-chip-redacted{color:var(--s33-red);background:var(--s33-red-soft)}
           #section-3-3 .s33-memory-rule{margin:10px 0 17px;padding:12px 14px;border-left:5px solid var(--s33-blue);background:var(--s33-blue-soft);color:#315a83;font-size:11.5px;line-height:1.7}
           #section-3-3 .s33-memory-rule strong{color:#1c4f80}
           #section-3-3 .s33-deny{margin:12px 0 22px;padding:13px 15px;border:1px solid #e1aeb5;border-left:6px solid var(--s33-red);background:var(--s33-red-soft);color:#71323a;font-size:11.5px;line-height:1.75}
@@ -1877,8 +1901,9 @@ where
           #section-3-3 .s33-stage-cell code{color:#25505b;font-size:10px;font-weight:750}
           #section-3-3 .s33-stage-07{margin:10px 0 22px;padding:9px 12px;border:1px dashed #9aa7b7;background:#f2f4f7;color:#66758a;font-size:10.5px;line-height:1.6}
           #section-3-3 .s33-stage-07 strong{text-decoration:line-through}
-          #section-3-3 .s33-layer-stack{display:grid;gap:12px}
-          #section-3-3 .s33-layer{border:1px solid var(--s33-line);border-top:5px solid var(--s33-orange);background:#fff}
+          #section-3-3 .s33-layer-stack{display:grid;width:100%;min-width:0;max-width:100%;gap:12px}
+          #section-3-3 .s33-layer-stack>*{min-width:0;max-width:100%}
+          #section-3-3 .s33-layer{width:100%;min-width:0;max-width:100%;border:1px solid var(--s33-line);border-top:5px solid var(--s33-orange);background:#fff}
           #section-3-3 .s33-layer.s33-durable{border-top-color:var(--s33-teal)}
           #section-3-3 .s33-layer.s33-public{border-top-color:var(--s33-green)}
           #section-3-3 .s33-layer-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;padding:13px 15px;background:#f8fafc}
@@ -1887,7 +1912,7 @@ where
           #section-3-3 .s33-public .s33-layer-no{background:var(--s33-green)}
           #section-3-3 .s33-layer-head h4{margin:0;color:var(--s33-ink);font-size:13px}
           #section-3-3 .s33-layer-head p{margin:3px 0 0;color:var(--s33-muted);font-size:10.5px;line-height:1.55}
-          #section-3-3 .s33-layer .s33-scroll{border-right:0;border-bottom:0;border-left:0}
+          #section-3-3 .s33-layer .s33-scroll{width:100%;min-width:0;max-width:100%;border-right:0;border-bottom:0;border-left:0}
           #section-3-3 .s33-event-table{min-width:900px}
           #section-3-3 .s33-event-table th:nth-child(1){width:18%}
           #section-3-3 .s33-event-table th:nth-child(2){width:25%}
@@ -1901,11 +1926,15 @@ where
           #section-3-3 .s33-decision-intro b{display:block;margin-bottom:4px;color:var(--s33-orange);font-size:11px}
           #section-3-3 .s33-decision-intro article+article b{color:var(--s33-green)}
           #section-3-3 .s33-decision-intro p{margin:0;color:#4b5c70;font-size:10.5px;line-height:1.6}
-          #section-3-3 .s33-variant{margin-top:11px;border:1px solid var(--s33-line);background:#fff}
+          #section-3-3 .s33-variant-index{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 16px;padding:10px;border:1px solid #c9d4e1;background:#f8fafc}
+          #section-3-3 .s33-variant-index b{flex:1 0 100%;color:var(--s33-navy);font-size:10.5px}
+          #section-3-3 .s33-variant-index a{padding:4px 7px;border:1px solid #afbdcd;background:#fff;color:#334a63;font:800 9.5px ui-monospace,SFMono-Regular,Menlo,monospace;text-decoration:none}
+          #section-3-3 .s33-variant-index a:hover,#section-3-3 .s33-variant-index a:focus-visible{border-color:var(--s33-teal);background:var(--s33-teal-soft);color:var(--s33-teal-deep);outline:2px solid transparent}
+          #section-3-3 .s33-variant{width:100%;min-width:0;max-width:100%;margin-top:16px;border:1px solid var(--s33-line);background:#fff}
           #section-3-3 .s33-variant-head{display:grid;grid-template-columns:185px minmax(0,1fr);align-items:stretch}
           #section-3-3 .s33-variant-head code{display:flex;align-items:center;padding:10px 13px;background:var(--s33-navy);color:#fff;font-size:11px;font-weight:900}
           #section-3-3 .s33-variant-head p{margin:0;padding:10px 13px;background:#f8fafc;color:#4b5d72;font-size:10.5px;line-height:1.55}
-          #section-3-3 .s33-variant .s33-scroll{border-right:0;border-bottom:0;border-left:0}
+          #section-3-3 .s33-variant .s33-scroll{width:100%;min-width:0;max-width:100%;border-right:0;border-bottom:0;border-left:0}
           #section-3-3 .s33-decision-table{min-width:820px}
           #section-3-3 .s33-decision-table th:nth-child(1){width:22%}
           #section-3-3 .s33-decision-table th:nth-child(2){width:48%}
@@ -1928,8 +1957,10 @@ where
           #section-3-3 .s33-confirm-rule{padding:13px 14px;background:var(--s33-red-soft);color:#6f3a41;font-size:11px;line-height:1.65}
           #section-3-3 .s33-confirm-rule+.s33-confirm-rule{border-left:1px solid #e6bbc1}
           #section-3-3 .s33-confirm-rule b{display:block;margin-bottom:3px;color:var(--s33-red)}
-          @media(max-width:980px){#section-3-3 .s33-flow-foot,#section-3-3 .s33-decision-intro,#section-3-3 .s33-tool-projection{grid-template-columns:1fr}#section-3-3 .s33-status+.s33-status,#section-3-3 .s33-decision-intro article+article{border-left:0;border-top:1px solid var(--s33-line)}#section-3-3 .s33-stage-detail{grid-template-columns:105px 1fr 1fr}#section-3-3 .s33-stage-cell.s33-internal-out,#section-3-3 .s33-stage-cell.s33-to-elo{grid-column:auto}#section-3-3 .s33-stage-cell:nth-child(4){border-top:1px solid var(--s33-line)}#section-3-3 .s33-stage-cell:nth-child(5){border-top:1px solid var(--s33-line)}#section-3-3 .s33-confirm-rules{grid-template-columns:1fr}#section-3-3 .s33-confirm-rule+.s33-confirm-rule{border-left:0;border-top:1px solid #e6bbc1}}
-          @media(max-width:640px){#section-3-3 .s33-scroll{margin-left:-8px;margin-right:-8px}#section-3-3 .s33-scroll-hint{text-align:left}#section-3-3 .s33-stage-detail{grid-template-columns:1fr}#section-3-3 .s33-stage-id{padding:9px 12px}#section-3-3 .s33-stage-id span{display:inline;margin-right:8px;font-size:16px}#section-3-3 .s33-stage-id b{display:inline}#section-3-3 .s33-stage-cell{border-top:1px solid var(--s33-line);border-left:0}#section-3-3 .s33-variant-head{grid-template-columns:1fr}#section-3-3 .s33-layer-head{grid-template-columns:1fr}#section-3-3 .s33-decision-intro article+article{border-top:1px solid var(--s33-line)}#section-3-3 .s33-tool-projection pre{font-size:9.8px}}
+          @media(max-width:1360px){#section-3-3 .s33-main-flow{grid-template-columns:minmax(0,1fr)}#section-3-3 .s33-arrow{height:34px}#section-3-3 .s33-arrow::before{width:auto;border:0;content:"↓";font-size:19px;font-weight:900}#section-3-3 .s33-arrow::after{display:none}#section-3-3 .s33-arrow span{position:static;width:auto;margin-left:8px;padding:2px 5px}#section-3-3 .s33-flow-node.s33-return{min-height:0}}
+          @media(max-width:980px){#section-3-3 .s33-flow-foot,#section-3-3 .s33-decision-intro,#section-3-3 .s33-tool-projection{grid-template-columns:1fr}#section-3-3 .s33-status+.s33-status,#section-3-3 .s33-decision-intro article+article{border-left:0;border-top:1px solid var(--s33-line)}#section-3-3 .s33-stage-detail{grid-template-columns:105px minmax(0,1fr) minmax(0,1fr)}#section-3-3 .s33-stage-cell.s33-internal-out,#section-3-3 .s33-stage-cell.s33-to-elo{grid-column:auto}#section-3-3 .s33-stage-cell:nth-child(4){border-top:1px solid var(--s33-line)}#section-3-3 .s33-stage-cell:nth-child(5){border-top:1px solid var(--s33-line)}#section-3-3 .s33-confirm-rules{grid-template-columns:1fr}#section-3-3 .s33-confirm-rule+.s33-confirm-rule{border-left:0;border-top:1px solid #e6bbc1}}
+          @media(max-width:700px){#section-3-3 .s33-overview-stages{grid-template-columns:repeat(2,minmax(0,1fr))}#section-3-3 .s33-overview-stage:nth-child(2n):not(:last-child)::after{top:auto;right:50%;bottom:-12px;content:"↓"}}
+          @media(max-width:640px){#section-3-3 .s33-scroll{margin-left:-8px;margin-right:-8px}#section-3-3 .s33-scroll-hint{text-align:left}#section-3-3 .s33-main-flow{padding:10px}#section-3-3 .s33-mma-head{grid-template-columns:1fr}#section-3-3 .s33-mma-head span{text-align:left}#section-3-3 .s33-overview-stages{grid-template-columns:1fr}#section-3-3 .s33-overview-stage{min-height:0;padding:34px 10px 13px}#section-3-3 .s33-overview-stage:not(:last-child)::after,#section-3-3 .s33-overview-stage:nth-child(2n):not(:last-child)::after{top:auto;right:50%;bottom:-12px;content:"↓"}#section-3-3 .s33-stage-detail{grid-template-columns:minmax(0,1fr)}#section-3-3 .s33-stage-id{padding:9px 12px}#section-3-3 .s33-stage-id span{display:inline;margin-right:8px;font-size:16px}#section-3-3 .s33-stage-id b{display:inline}#section-3-3 .s33-stage-cell{min-width:0;border-top:1px solid var(--s33-line);border-left:0}#section-3-3 .s33-variant-head{grid-template-columns:minmax(0,1fr)}#section-3-3 .s33-layer-head{grid-template-columns:minmax(0,1fr)}#section-3-3 .s33-decision-intro article+article{border-top:1px solid var(--s33-line)}#section-3-3 .s33-tool-projection pre{min-width:0;font-size:9.8px}}
         </style>
 
         <div class="section-head s33-head"><span class="section-no">3.3</span><div><h2>一条主线看懂：Elo Runtime 取回记忆后，MMAgent 怎样接单、制作并回传</h2><p>上游只展示 Elo 怎样形成可信工作单，下游只展示怎样回到同一个 Turn；中间放大 MMAgent 原生产线，逐阶段标清输入、内部处理与可公开输出。</p></div></div>
@@ -1939,15 +1970,18 @@ where
         <h3 class="s33-subhead" id="section-3-3-1-overview">3.3.1 一条线：Runtime 收到请求 → 安全取忆 → MMAgent 制作 → 回到同一 Turn<small>MMAgent zoom window 占据主线主体；左右只保留必要上下文。</small></h3>
         <div class="s33-scroll" tabindex="0" role="region" aria-label="Elo Runtime、Memory、MMAgent 和回流的一条主线，可横向滚动">
           <div class="s33-main-flow">
-            <article class="s33-flow-node"><span class="s33-flow-tag">01 · REQUEST</span><h4>User request / Elo App</h4><p>用户在当前 Thread 提出图片、视频、音频或内容包需求。</p><p>最新用户消息仍是确认与意图判断的可信源。</p></article>
-            <i class="s33-arrow" aria-label="当前实线"><span>CURRENT</span></i>
-            <article class="s33-flow-node"><span class="s33-flow-tag">02 · TURN</span><h4>Elo App Server / Runtime Adapter</h4><p><strong>Elo Runtime Core</strong> 创建或继续当前 <code>thread_id + turn_id</code>，保存真实对话尾部、Host policy 与 <code>call_id</code>。</p></article>
-            <i class="s33-arrow s33-target" aria-label="目标虚线"><span>TARGET WIRING</span></i>
-            <article class="s33-flow-node s33-memory"><span class="s33-flow-tag">03 · SAFE RECALL</span><h4><code>RuntimeMemoryHooks</code> → <code>CodexMemoryFacade</code></h4><p>按 scope / safety / provenance / negative-filter / token-budget 过滤召回。</p><p>输出安全 context block；不是把 raw memory store 交给模型或 MMAgent。</p></article>
-            <i class="s33-arrow s33-target" aria-label="目标虚线"><span>SAFE PROJECTION</span></i>
-            <article class="s33-flow-node s33-context"><span class="s33-flow-tag">04 · COMPOSE</span><h4>Elo Context Builder</h4><p>合并最新真实对话尾部、安全 recall、project facts 与已授权媒体引用。</p><p>目标写入既有 <code>context.chat_summary</code> / <code>project_records[]</code>。</p></article>
-            <i class="s33-arrow" aria-label="当前实线"><span>CURRENT CORE</span></i>
-            <article class="s33-flow-node s33-host"><span class="s33-flow-tag">05 · HOST TRUST</span><h4><code>media.run({action})</code> + Host adapter</h4><p>模型只可给 <code>run</code>，或在新鲜确认后给 <code>confirm_pending</code>。</p><p>Host 组装两包：<code>EloModelInput</code> + <code>EloTrustedContext</code>。</p></article>
+            <aside class="s33-upstream" aria-label="Elo Runtime 从请求到 Native Host 边界的五步紧凑上游">
+              <header class="s33-upstream-head"><b>01—05 · ELO TRUSTED HANDOFF</b><span>紧凑上游 · 记忆接线状态逐项标明</span></header>
+              <article class="s33-upstream-node"><h4>01 · User / Elo App</h4><p>当前 Thread 的媒体请求；latest user message 是确认可信源。</p></article>
+              <div class="s33-upstream-link">CURRENT · request</div>
+              <article class="s33-upstream-node"><h4>02 · Elo Runtime Core</h4><p>创建 / 继续 <code>thread_id + turn_id</code>，保存真实对话尾部与 Host policy。</p></article>
+              <div class="s33-upstream-link s33-target">TARGET WIRING · recall</div>
+              <article class="s33-upstream-node s33-memory"><h4>03 · Memory Hooks / Facade</h4><p>scope、安全、provenance、negative filter、token budget → safe recall。</p></article>
+              <div class="s33-upstream-link s33-target">TARGET · safe projection</div>
+              <article class="s33-upstream-node s33-context"><h4>04 · Context Builder</h4><p>真实对话 + 安全 recall + project facts + 授权媒体引用。</p></article>
+              <div class="s33-upstream-link">CURRENT CORE · tool</div>
+              <article class="s33-upstream-node s33-host"><h4>05 · <code>media.run({action})</code> / Host</h4><p>模型只给 action；Host 组装 <code>EloModelInput</code> + <code>EloTrustedContext</code>。</p></article>
+            </aside>
             <i class="s33-arrow" aria-label="当前实线"><span>IN-PROCESS</span></i>
             <section class="s33-mma" aria-label="MMAgent Runtime 放大区，七个有效处理阶段">
               <header class="s33-mma-head"><b>06 · MMAgent Runtime · 原生产线放大区</b><span>约 60% 主线宽度 · MediaService::run_from_elo(...) → MediaAgent</span></header>
@@ -1967,7 +2001,7 @@ where
             <article class="s33-flow-node s33-return"><span class="s33-flow-tag">07 · SAME TOOL CALL</span><h4>回到同一个 Elo Turn</h4><p><strong>过程 1:N：</strong><code>AgentEvent</code> 先持久化，再 Native callback，经 allowlist 投影进入 Elo thread store → <code>thread/mediaAgent/event</code> → UI。</p><p><strong>结果 1：</strong>当前 <code>AgentDecision</code> 递归脱敏后作为 tool result；<code>output_urls</code> 只含 Provider 证据可证明成功的 HTTP(S) URL。</p></article>
           </div>
         </div>
-        <p class="s33-scroll-hint">主线可横向滑动；键盘用户聚焦后可使用 Shift + 滚轮或方向键查看完整 MMAgent 放大区</p>
+        <p class="s33-scroll-hint">桌面首屏同时呈现 Host、MMAgent 主体与回流；窄屏自动改为纵向流程，七阶段不缩小字号</p>
         <div class="s33-flow-foot" aria-label="当前接线与目标接线状态">
           <div class="s33-status s33-current"><b>● CURRENT · 实线 / 当前已接通</b>可信 conversation history → <code>messages[]</code>；Host IDs / policy；Native <code>media.run → MediaService → MMAgent</code>；事件与 Decision 回到同一 Elo tool call。</div>
           <div class="s33-status s33-target-status"><b>┄ TARGET WIRING · 虚线 / 尚未接通</b>recalled memory / project context → <code>context.chat_summary / context.project_records[]</code>。当前代码仍构造 <code>context: Default::default()</code>，且当前 <code>user_id / project_id</code> 都是 <code>None</code>；图中不得把它们画成已上线。</div>
@@ -1975,6 +2009,7 @@ where
         <div class="s33-boundary" role="note"><strong>记忆边界：MMAgent 永远不直接查询 Elo 的 memory engine。</strong>Elo Runtime 独占 recall、scope、安全、provenance、negative filtering 与 context budget；MMAgent 只消费 Elo 已授权、已裁剪、带来源语义的投影。</div>
 
         <h3 class="s33-subhead" id="section-3-3-2-input">3.3.2 Elo 到底给 MMAgent 什么：字段字典<small>字段解释放在总览之后；每项同时标注来源、默认值与信任边界。</small></h3>
+        <div class="s33-scan-legend" aria-label="字段边界快速图例"><span><b class="s33-scan-chip">PUBLIC / AUTHORIZED</b>可按合同投影</span><span><b class="s33-scan-chip s33-chip-host">HOST-ONLY</b>仅可信宿主可写</span><span><b class="s33-scan-chip s33-chip-internal">INTERNAL</b>只留 MMAgent / Provider 内部</span><span><b class="s33-scan-chip s33-chip-redacted">REDACTED</b>进入模型结果前递归删除</span></div>
         <div class="s33-group-title"><span>A</span><b>模型工具参数 · 唯一由模型填写的一组字段</b></div>
         <div class="s33-scroll" tabindex="0" role="region" aria-label="模型工具参数字段表">
           <table class="s33-table s33-input-table">
@@ -1988,7 +2023,7 @@ where
           <table class="s33-table s33-input-table">
             <thead><tr><th>字段</th><th>类型 / 允许值</th><th>当前来源 / 默认</th><th>人话解释</th><th>信任 / 公开边界</th></tr></thead>
             <tbody>
-              <tr><td><code>messages[]</code></td><td><code>Array&lt;EloInputMessage&gt;</code></td><td>当前 Host 从已授权 conversation history 映射。</td><td>按顺序给 MMAgent 的真实对话材料；保留谁说了什么以及多模态引用。</td><td><span class="s33-boundary-label">AUTHORIZED INPUT</span><br>不是整库历史，也不是模型自行拼出的“记忆”。</td></tr>
+              <tr><td><code>messages[]</code></td><td><code>Vec&lt;ChatMessage&gt;</code></td><td>当前 Host 从已授权 conversation history 映射。</td><td>按顺序给 MMAgent 的真实对话材料；保留谁说了什么以及多模态引用。</td><td><span class="s33-boundary-label">AUTHORIZED INPUT</span><br>不是整库历史，也不是模型自行拼出的“记忆”。</td></tr>
               <tr><td><code>messages[].role</code></td><td>消息角色；必填。</td><td>来自可信对话记录。</td><td>说明该条内容属于 user / assistant / system 等角色，供 Normalizer 理解上下文。</td><td>角色与顺序由 Elo Host 保证，模型工具参数不能改写。</td></tr>
               <tr><td><code>messages[].name?</code></td><td>可选字符串。</td><td>原消息有名字时保留，否则省略。</td><td>区分具名参与者或工具来源；不承担身份授权。</td><td>仅作为内容语义；真正身份仍在 Host 可信域。</td></tr>
               <tr><td><code>messages[].content</code></td><td>字符串，或 content parts 数组。</td><td>来自已授权消息正文。</td><td>纯文本直接传字符串；文字与媒体混合时使用分块形式。</td><td>进入 MMAgent 前仍受长度、URL 与媒体规则校验。</td></tr>
@@ -2002,7 +2037,7 @@ where
               <tr><td><code>record_id?</code></td><td>可选字符串。</td><td>有稳定、安全可暴露的投影 ID 时填写。</td><td>让多条项目记录可区分；不是底层 memory_id。</td><td>投影标识；不得泄露存储主键或跨项目关联。</td></tr>
               <tr><td><code>record_type?</code></td><td>可选字符串。</td><td>由 Elo 投影层给出安全类别。</td><td>例如项目约束、品牌事实、交付要求，帮助 MMAgent理解用途。</td><td>语义标签，不可用作权限凭证。</td></tr>
               <tr><td><code>title?</code></td><td>可选字符串。</td><td>记录有安全标题时填写。</td><td>给记录一个短名称，便于 Planner 引用和审阅。</td><td>需避免把敏感原题名直接外露。</td></tr>
-              <tr><td><code>content</code></td><td>字符串；必填。</td><td>由 Elo 从安全召回结果摘要 / 投影。</td><td>本次任务真正需要的项目事实正文。</td><td>已过 scope、安全、provenance 与 budget；不含整条 raw record。</td></tr>
+              <tr><td><code>content</code></td><td><code>serde_json::Value</code>；必填，可为字符串或结构化 JSON。</td><td>由 Elo 从安全召回结果摘要 / 投影。</td><td>承载本次任务真正需要的项目事实；简单事实可用字符串，结构化记录无需压扁成文本。</td><td>已过 scope、安全、provenance 与 budget；不含整条 raw record。</td></tr>
             </tbody>
           </table>
         </div>
@@ -2014,11 +2049,11 @@ where
           <table class="s33-table s33-input-table">
             <thead><tr><th>字段</th><th>类型 / 允许值</th><th>当前来源 / 默认</th><th>人话解释</th><th>信任 / 公开边界</th></tr></thead>
             <tbody>
-              <tr><td><code>request_id</code></td><td>字符串。</td><td>当前使用 Elo <code>call_id</code>。</td><td>标记这一次原生 tool call，便于内部追踪与关联。</td><td><span class="s33-boundary-label s33-host-only">HOST-ONLY</span><br>模型不能指定；tool-result 投影递归删除。</td></tr>
-              <tr><td><code>user_id</code></td><td>可选字符串。</td><td>当前为 <code>None</code>；合同预留。</td><td>未来用于明确的可信用户主体。</td><td>不能从用户文本猜；未接线时必须明确显示为空。</td></tr>
-              <tr><td><code>project_id</code></td><td>可选字符串。</td><td>当前为 <code>None</code>；合同预留。</td><td>未来把工作单绑定到可信项目 scope。</td><td>不能由模型或项目记录正文反推。</td></tr>
-              <tr><td><code>conversation_id</code></td><td>字符串。</td><td>当前使用 Elo <code>thread_id</code>。</td><td>说明 Job 属于哪段可信对话，也用于找回同一对话下待确认 Job。</td><td>Host 生成；不作为公开业务内容展示。</td></tr>
-              <tr><td><code>idempotency_key</code></td><td>字符串。</td><td>新 run 为 <code>elo:{thread_id}:{turn_id}</code>。</td><td>同一 Turn 的重复触发复用同一工作语义，避免重复创建 / 付费提交。</td><td>内部控制键；tool-result 投影递归删除。</td></tr>
+              <tr><td><code>request_id</code></td><td><code>Option&lt;String&gt;</code>。</td><td>当前 Host 填 <code>Some(call_id)</code>。</td><td>标记这一次原生 tool call，便于内部追踪与关联；合同允许缺省，但当前 Native Host 会填。</td><td><span class="s33-boundary-label s33-host-only">HOST-ONLY</span><br>模型不能指定；tool-result 投影递归删除。</td></tr>
+              <tr><td><code>user_id</code></td><td><code>Option&lt;String&gt;</code>。</td><td>当前为 <code>None</code>；合同预留。</td><td>未来用于明确的可信用户主体。</td><td>不能从用户文本猜；未接线时必须明确显示为空。</td></tr>
+              <tr><td><code>project_id</code></td><td><code>Option&lt;String&gt;</code>。</td><td>当前为 <code>None</code>；合同预留。</td><td>未来把工作单绑定到可信项目 scope。</td><td>不能由模型或项目记录正文反推。</td></tr>
+              <tr><td><code>conversation_id</code></td><td><code>Option&lt;String&gt;</code>。</td><td>当前 Host 填 <code>Some(thread_id)</code>。</td><td>说明 Job 属于哪段可信对话，也用于找回同一对话下待确认 Job；合同可选，当前 Native 路径会填。</td><td>Host 生成；不作为公开业务内容展示。</td></tr>
+              <tr><td><code>idempotency_key</code></td><td><code>Option&lt;String&gt;</code>。</td><td>新 run 当前填 <code>Some("elo:{thread_id}:{turn_id}")</code>。</td><td>同一 Turn 的重复触发复用同一工作语义，避免重复创建 / 付费提交；合同可选，当前 Host 会填。</td><td>内部控制键；tool-result 投影递归删除。</td></tr>
               <tr><td><code>access_mode</code></td><td><code>standard</code>（当前）。</td><td>Host 固定。</td><td>告诉 MMAgent 应采用哪套访问与能力政策。</td><td>模型不可升级权限；不是自然语言提示。</td></tr>
               <tr><td><code>execution_mode</code></td><td><code>wait_for_result</code>（当前）。</td><td>Host 固定。</td><td>当前 tool call 等待可交付结果；未来模式变化仍由 Host 决定。</td><td>模型不可选择副作用返回时机。</td></tr>
               <tr><td><code>confirmation_authorization</code></td><td><code>NotAuthorized | ExplicitLatestUserConfirmation</code></td><td>每次开始为 <code>NotAuthorized</code>；Host 仅在核验最新可信 user message 后升级。</td><td>这是付费继续执行的真正授权位，不是模型说“用户确认了”。</td><td><span class="s33-boundary-label s33-host-only">HOST-ONLY GATE</span><br>不能从 tool args 或 assistant 文本伪造。</td></tr>
@@ -2131,12 +2166,13 @@ where
         <div class="s33-order-note"><strong>固定顺序：persist before callback。</strong>内部 <code>AgentEvent</code> 先转换并写入 MMAgent RuntimeStore 的 <code>RuntimeEventRecord</code>，成功后才调用 Native callback；Elo 再做公共 allowlist 投影、写自己的 thread store、通知 UI。这里没有第二条 public SSE session。内部 <code>message</code>、任意 <code>data</code>、Provider prompt / endpoint / raw result 都不跨公共桥。</div>
 
         <h3 class="s33-subhead" id="section-3-3-4-decision">AgentDecision · 七种当前结论，每个字段各归其位</h3>
+        <nav class="s33-variant-index" aria-label="AgentDecision 七种 variant 快速索引"><b>快速定位 variant</b><a href="#s33-decision-planned">planned</a><a href="#s33-decision-confirmation">needs_confirmation</a><a href="#s33-decision-submitted">submitted</a><a href="#s33-decision-provider-completed">provider_completed</a><a href="#s33-decision-content-package">content_package</a><a href="#s33-decision-need-more-info">need_more_info</a><a href="#s33-decision-rejected">rejected</a></nav>
         <div class="s33-decision-intro" aria-label="完整 AgentDecision 与模型投影区别">
           <article><b>INTERNAL FULL DECISION</b><p>MMAgent Runtime / Native Host 可持有完整强类型对象，用于 Job 恢复、Provider 证据、费用与交付。它不是直接给模型或 UI 的 JSON。</p></article>
           <article><b>MODEL / TOOL-RESULT PROJECTION</b><p>同一对象先递归删除内部 key，再作为当前 tool result。UI 仍走自己的公开投影；<code>output_urls</code> 还要额外通过成功状态与 Provider evidence 证明。</p></article>
         </div>
 
-        <article class="s33-variant">
+        <article class="s33-variant" id="s33-decision-planned">
           <header class="s33-variant-head"><code>kind = planned</code><p>业务计划已形成；不表示 Provider 已提交或已经扣费。</p></header>
           <div class="s33-scroll" tabindex="0" role="region" aria-label="planned 字段解释"><table class="s33-table s33-decision-table"><thead><tr><th>字段</th><th>含义</th><th>投影 / 边界</th></tr></thead><tbody>
             <tr><td><code>job_id</code></td><td>承载该计划的内部 Job 标识。</td><td>递归脱敏删除。</td></tr>
@@ -2147,7 +2183,7 @@ where
           </tbody></table></div>
         </article>
 
-        <article class="s33-variant">
+        <article class="s33-variant" id="s33-decision-confirmation">
           <header class="s33-variant-head"><code>kind = needs_confirmation</code><p>成本达到确认门槛；MMAgent 已保存待确认 Job，但尚未进行付费提交。</p></header>
           <div class="s33-scroll" tabindex="0" role="region" aria-label="needs_confirmation 字段解释"><table class="s33-table s33-decision-table"><thead><tr><th>字段</th><th>含义</th><th>投影 / 边界</th></tr></thead><tbody>
             <tr><td><code>job_id</code></td><td>等待确认的同一内部 Job。</td><td>递归脱敏删除；不会进入下一次 tool args。</td></tr>
@@ -2161,7 +2197,7 @@ where
           </tbody></table></div>
         </article>
 
-        <article class="s33-variant">
+        <article class="s33-variant" id="s33-decision-submitted">
           <header class="s33-variant-head"><code>kind = submitted</code><p>Provider 已收到一次提交；下一步是轮询同一个 task，而不是再次 submit。</p></header>
           <div class="s33-scroll" tabindex="0" role="region" aria-label="submitted 字段解释"><table class="s33-table s33-decision-table"><thead><tr><th>字段</th><th>含义</th><th>投影 / 边界</th></tr></thead><tbody>
             <tr><td><code>job_id</code></td><td>MMAgent 内部 Job。</td><td>递归脱敏删除。</td></tr>
@@ -2173,7 +2209,7 @@ where
           </tbody></table></div>
         </article>
 
-        <article class="s33-variant">
+        <article class="s33-variant" id="s33-decision-provider-completed">
           <header class="s33-variant-head"><code>kind = provider_completed</code><p>Provider 已给出终态；原始 Provider 结果仍是内部证据，不等于可直接交付。</p></header>
           <div class="s33-scroll" tabindex="0" role="region" aria-label="provider_completed 字段解释"><table class="s33-table s33-decision-table"><thead><tr><th>字段</th><th>含义</th><th>投影 / 边界</th></tr></thead><tbody>
             <tr><td><code>job_id</code></td><td>MMAgent 内部 Job。</td><td>递归脱敏删除。</td></tr>
@@ -2188,7 +2224,7 @@ where
           </tbody></table></div>
         </article>
 
-        <article class="s33-variant">
+        <article class="s33-variant" id="s33-decision-content-package">
           <header class="s33-variant-head"><code>kind = content_package</code><p>结构化内容包与媒体结果已聚合到同一交付结论。</p></header>
           <div class="s33-scroll" tabindex="0" role="region" aria-label="content_package 字段解释"><table class="s33-table s33-decision-table"><thead><tr><th>字段</th><th>含义</th><th>投影 / 边界</th></tr></thead><tbody>
             <tr><td><code>job_id</code></td><td>生成该内容包的内部 Job。</td><td>递归脱敏删除。</td></tr>
@@ -2201,14 +2237,14 @@ where
           </tbody></table></div>
         </article>
 
-        <article class="s33-variant">
+        <article class="s33-variant" id="s33-decision-need-more-info">
           <header class="s33-variant-head"><code>kind = need_more_info</code><p>任务资料不足；回到同一个 Elo 对话追问，不启动付费提交。</p></header>
           <div class="s33-scroll" tabindex="0" role="region" aria-label="need_more_info 字段解释"><table class="s33-table s33-decision-table"><thead><tr><th>字段</th><th>含义</th><th>投影 / 边界</th></tr></thead><tbody>
             <tr><td><code>message</code></td><td>缺什么资料、用户应补充什么的说明。</td><td>可在脱敏后交给 Elo assistant；不要混同 AgentEvent 的内部诊断 <code>message</code>。</td></tr>
           </tbody></table></div>
         </article>
 
-        <article class="s33-variant">
+        <article class="s33-variant" id="s33-decision-rejected">
           <header class="s33-variant-head"><code>kind = rejected</code><p>安全或规则不允许继续；不会走费用确认，也不会提交 Provider。</p></header>
           <div class="s33-scroll" tabindex="0" role="region" aria-label="rejected 字段解释"><table class="s33-table s33-decision-table"><thead><tr><th>字段</th><th>含义</th><th>投影 / 边界</th></tr></thead><tbody>
             <tr><td><code>job_id</code></td><td>被拒绝的内部 Job（如已建立）。</td><td>递归脱敏删除。</td></tr>
@@ -2224,7 +2260,7 @@ where
     "only successful HTTP(S) URLs proven by Provider evidence"
   ]
 }</code></pre>
-          <div><b>当前递归删除的内部字段名（任意嵌套层级都处理）</b><code>approval_token, quote_id, job_id, task_id, provider_task_id, poll_url, request_id, idempotency_key, route, endpoint, generation_model, provider_result</code>。这不是“删除所有 Provider 信息”：例如 <code>provider</code> 名称不在这份递归删除列表中；是否公开仍由后续公共合同决定。</div>
+          <div><b>当前递归删除的内部字段名（任意嵌套层级都处理）</b><code>approval_token, quote_id, job_id, task_id, provider_task_id, poll_url, request_id, idempotency_key, route, endpoint, generation_model, provider_result, output_asset, output_urls, provider_hint</code>。Decision 内嵌的 <code>output_urls</code> 会被删除；顶层 <code>output_urls</code> 随后只从成功状态与 Provider evidence 重新构建。这不是“删除所有 Provider 信息”：例如 <code>provider</code> 名称不在这份递归删除列表中；是否公开仍由后续公共合同决定。</div>
         </div>
 
         <h3 class="s33-subhead" id="section-3-3-5-confirm">3.3.5 费用确认回环：不让 token 经过模型，恢复同一个 Job<small>确认凭据由 RuntimeStore 保存并由 Host 恢复；模型只说 action。</small></h3>
@@ -2448,6 +2484,114 @@ where
         loadController?.abort();
         document.body.classList.remove("modal-open");
       });
+
+      const directory = document.querySelector(".directory");
+      const directoryList = directory?.querySelector(":scope > ol");
+      const navigationEntries = directory
+        ? Array.from(directory.querySelectorAll('a[href^="#"]')).flatMap(link => {
+            let id;
+            try {
+              id = decodeURIComponent(link.hash.slice(1));
+            } catch {
+              return [];
+            }
+            const target = document.getElementById(id);
+            return target ? [{ link, target }] : [];
+          })
+        : [];
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      let activeEntry = null;
+      let scrollFrame = 0;
+      let layoutFrame = 0;
+
+      function revealCurrentLink(link) {
+        if (!directory || !directoryList) return;
+        const margin = 16;
+        const behavior = reducedMotion.matches ? "auto" : "smooth";
+
+        if (window.matchMedia("(max-width: 980px)").matches) {
+          const stripRect = directoryList.getBoundingClientRect();
+          const linkRect = link.getBoundingClientRect();
+          let delta = 0;
+          if (linkRect.left < stripRect.left + margin) {
+            delta = linkRect.left - stripRect.left - margin;
+          } else if (linkRect.right > stripRect.right - margin) {
+            delta = linkRect.right - stripRect.right + margin;
+          }
+          if (delta) directoryList.scrollTo({ left: directoryList.scrollLeft + delta, behavior });
+          return;
+        }
+
+        const directoryRect = directory.getBoundingClientRect();
+        const linkRect = link.getBoundingClientRect();
+        let delta = 0;
+        if (linkRect.top < directoryRect.top + margin) {
+          delta = linkRect.top - directoryRect.top - margin;
+        } else if (linkRect.bottom > directoryRect.bottom - margin) {
+          delta = linkRect.bottom - directoryRect.bottom + margin;
+        }
+        if (delta) directory.scrollTo({ top: directory.scrollTop + delta, behavior });
+      }
+
+      function setCurrentEntry(entry) {
+        if (!entry || entry === activeEntry) return;
+        navigationEntries.forEach(({ link }) => {
+          const isCurrent = link === entry.link;
+          link.classList.toggle("is-current", isCurrent);
+          if (isCurrent) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+        activeEntry = entry;
+        revealCurrentLink(entry.link);
+      }
+
+      function syncDirectoryWithReadingPosition() {
+        scrollFrame = 0;
+        if (!navigationEntries.length) return;
+
+        const pageBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+        if (pageBottom) {
+          setCurrentEntry(navigationEntries[navigationEntries.length - 1]);
+          return;
+        }
+
+        const readingMarker = Math.min(190, Math.max(96, window.innerHeight * 0.24));
+        let current = navigationEntries[0];
+        for (const entry of navigationEntries) {
+          if (entry.target.getBoundingClientRect().top <= readingMarker) current = entry;
+          else break;
+        }
+        setCurrentEntry(current);
+      }
+
+      function scheduleDirectorySync() {
+        if (scrollFrame) return;
+        scrollFrame = requestAnimationFrame(syncDirectoryWithReadingPosition);
+      }
+
+      function scheduleDirectoryLayoutSync() {
+        scheduleDirectorySync();
+        if (layoutFrame) return;
+        layoutFrame = requestAnimationFrame(() => {
+          layoutFrame = 0;
+          if (activeEntry) revealCurrentLink(activeEntry.link);
+        });
+      }
+
+      if (navigationEntries.length) {
+        directory.addEventListener("click", event => {
+          const link = event.target.closest('a[href^="#"]');
+          const entry = navigationEntries.find(item => item.link === link);
+          if (entry) setCurrentEntry(entry);
+        });
+        window.addEventListener("scroll", scheduleDirectorySync, { passive: true });
+        window.addEventListener("resize", scheduleDirectoryLayoutSync, { passive: true });
+        window.addEventListener("orientationchange", scheduleDirectoryLayoutSync, { passive: true });
+        window.addEventListener("hashchange", scheduleDirectoryLayoutSync);
+        window.addEventListener("pageshow", scheduleDirectoryLayoutSync);
+        window.addEventListener("load", scheduleDirectoryLayoutSync, { once: true });
+        scheduleDirectorySync();
+      }
     })();
   </script>
 </body>

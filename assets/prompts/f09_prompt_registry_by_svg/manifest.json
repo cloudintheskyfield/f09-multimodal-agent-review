@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "registry_id": "MMAGENT_PROMPT_REGISTRY",
   "product": "MMAgent",
-  "revision": "2026-07-16-stage-scoped-contract-pass",
+  "revision": "2026-07-20-image-video-outcome-scope",
   "source_html": {
     "path": "/Users/wangshuang/PycharmProjects/haima/generate_multimodal_content/设计文档/asset_html/multimodal-agent-diagram-collection.html",
     "sha256": "87bc2fe21d7358989d889611ac37f66e99e9be8fb739a9698188398dd0ce567a",
@@ -174,16 +174,16 @@
     {
       "order": 1,
       "id": "INTENT_CLASSIFIER",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "active",
       "runtime_enabled": false,
       "group": "路由与业务内容包",
       "registry_layer": null,
       "path": "路由与业务内容包/INTENT_CLASSIFIER.md",
-      "sha256": "2fbceb7bdc8980a74dabb525fa0a4cfb269c197eb3ef27345a644d3ff71ea23d",
+      "sha256": "1d83c5cba105c444a83e8f7435e4fd82a1b204a04c4f034079fc67654daa97a4",
       "executor": "design_contract",
-      "position": "between context loading and multimedia workflow planning",
-      "purpose": "Normalize stage-scoped messages and task-related context into a seven-field multimedia TaskBrief without planning or routing.",
+      "position": "between context loading and image/video workflow planning",
+      "purpose": "Normalize stage-scoped messages and task-related context into a seven-field image/video TaskBrief without planning or routing; non-image/video final outcomes are unsupported.",
       "input_keys": [
         "messages",
         "context"
@@ -200,8 +200,8 @@
       "placeholders": [
 
       ],
-      "runtime_binding": "No separate production model call is bound. This target contract defines a stage-scoped TaskBrief normalizer for messages plus task-related context only.",
-      "design_runtime_gap": "Production currently assembles legacy routing input directly and does not execute this seven-field TaskBrief normalization contract.",
+      "runtime_binding": "No separate production model call is bound. This target contract defines a stage-scoped image/video TaskBrief normalizer for messages plus task-related context only.",
+      "design_runtime_gap": "Production currently assembles legacy routing input directly and does not execute this image/video-only seven-field TaskBrief normalization contract.",
       "evidence": [
         "src/main.rs:559",
         "src/media_agent.rs:151",
